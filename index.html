@@ -29,7 +29,7 @@
       <nav class="nav" aria-label="Principale">
         <ul class="nav__list" id="nav-list">
           <li><a href="#chi-sono">Chi sono</a></li>
-          <li><a href="#aree">Di cosa mi occupo</a></li>
+          <li><a href="#aree">Aree di intervento</a></li>
           <li><a href="#percorso">Inizia un percorso</a></li>
           <li class="nav__cta-item"><a href="#contatti" class="btn btn--small">Contattami</a></li>
         </ul>
@@ -84,40 +84,52 @@
       <div class="container">
         <header class="section__head reveal">
           <p class="eyebrow">Aree di intervento</p>
-          <h2>Di cosa mi occupo</h2>
+          <h2>Supporto psicologico nelle diverse fasi del ciclo di vita.</h2>
         </header>
 
-        <div class="areas">
-          <article class="area reveal">
-            <h3>Ansia e attacchi di panico</h3>
-            <p>Quando la preoccupazione diventa costante e il corpo resta in allerta anche senza un motivo apparente.</p>
-            <p class="area__label">Potresti riconoscerti se</p>
-            <ul class="area__signs">
-              <li>ti svegli già con un senso di tensione</li>
-              <li>eviti luoghi o situazioni per paura di stare male</li>
-              <li>fai fatica a "spegnere" i pensieri la sera</li>
-            </ul>
+        <!-- Tre percorsi per fascia d'età. Icone: crescita (forme impilate), autonomia (forma libera), relazione (forme che si toccano) -->
+        <div class="paths">
+          <article class="path path--teen reveal">
+            <svg class="path__icon" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M27 14h26a13 13 0 0 1-26 0z" fill="var(--terracotta)"/>
+              <path d="M10 38h60a30 30 0 0 1-60 0z" fill="var(--rose)"/>
+            </svg>
+            <h3 class="path__name">Preadolescenti e adolescenti</h3>
+            <p class="path__age">Dagli 11 anni</p>
+            <p class="path__text">Consulenza e supporto psicologico nei momenti di difficoltà legati alla crescita, alle relazioni, alla scuola e alla costruzione della propria identità.</p>
           </article>
-          <article class="area reveal">
-            <h3>Relazioni e coppia</h3>
-            <p>Per chi vive conflitti che si ripetono, distanza emotiva o la fatica di una separazione.</p>
-            <p class="area__label">Potresti riconoscerti se</p>
-            <ul class="area__signs">
-              <li>le discussioni finiscono sempre allo stesso modo</li>
-              <li>ti senti sola anche dentro la relazione</li>
-              <li>hai paura di essere lasciata o di lasciare</li>
-            </ul>
+
+          <article class="path path--young reveal">
+            <svg class="path__icon" viewBox="0 0 80 80" aria-hidden="true">
+              <path d="M51 10c15 2 22 17 17 31-5 14-19 14-31 21-11 6-25 5-27-6-3-13 8-22 15-33 7-10 13-14 26-13z" fill="var(--olive)"/>
+            </svg>
+            <h3 class="path__name">Giovani adulti</h3>
+            <p class="path__age">19–30 anni</p>
+            <p class="path__text">Uno spazio di ascolto e confronto per affrontare difficoltà personali e relazionali, momenti di cambiamento, scelte e interrogativi legati alla costruzione del proprio progetto di vita.</p>
           </article>
-          <article class="area reveal">
-            <h3>Autostima e cambiamenti</h3>
-            <p>Nei passaggi di vita (un lavoro, un trasferimento, una perdita) e quando la voce critica interna pesa troppo.</p>
-            <p class="area__label">Potresti riconoscerti se</p>
-            <ul class="area__signs">
-              <li>ti senti spesso "non abbastanza"</li>
-              <li>fai fatica a dire di no</li>
-              <li>non riconosci più la direzione che stai prendendo</li>
-            </ul>
+
+          <article class="path path--parents reveal">
+            <svg class="path__icon" viewBox="0 0 80 80" aria-hidden="true">
+              <ellipse cx="30" cy="36" rx="20" ry="25" transform="rotate(22 30 36)" fill="var(--mauve)"/>
+              <circle cx="55" cy="52" r="17" fill="var(--peach)" opacity=".85"/>
+            </svg>
+            <h3 class="path__name">Genitori</h3>
+            <p class="path__text">Consulenza e supporto psicologico per comprendere le difficoltà dei figli, affrontare momenti di conflitto e trovare nuove modalità per accompagnarli nel percorso di crescita.</p>
           </article>
+        </div>
+
+        <!-- Difficoltà comuni a tutte le fasce, come base delle tre card -->
+        <div class="needs reveal">
+          <ul class="needs__list">
+            <li>Ansia e sofferenza emotiva</li>
+            <li>Difficoltà relazionali e affettive</li>
+            <li>Autostima e immagine di sé</li>
+            <li>Difficoltà scolastiche e lavorative</li>
+            <li>Conflitti familiari</li>
+            <li>Difficoltà nel rapporto con il corpo</li>
+            <li>Ritiro e isolamento sociale</li>
+            <li>Momenti di crisi e cambiamento</li>
+          </ul>
         </div>
       </div>
     </section>

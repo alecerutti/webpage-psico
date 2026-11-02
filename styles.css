@@ -11,6 +11,17 @@
   --sand: #C4A487;
   --line: rgba(38, 51, 47, .13);
 
+  /* Accenti caldi delle aree di intervento */
+  --rose: #C9A0A6;        /* rosa antico */
+  --terracotta: #D6977B;
+  --olive: #A8AD6E;
+  --mauve: #CDB1BC;
+  --peach: #F0C6A4;
+  --teen-soft: rgba(201, 160, 166, .17);
+  --young-soft: rgba(168, 173, 110, .15);
+  --parents-soft: rgba(205, 177, 188, .2);
+  --pill: rgba(214, 151, 123, .12);
+
   --serif: "Fraunces", Georgia, serif;
   --sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
 
@@ -184,24 +195,54 @@ em { font-style: italic; color: var(--teal); }
   .facts div { grid-template-columns: 9rem 1fr; gap: 1rem; }
 }
 
-/* Aree */
-.areas { display: grid; gap: 3rem; }
-.area { border-top: 1px solid var(--ink); padding-top: 2rem; min-width: 0; }
-.area h3 { font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem; }
-.area > p { color: var(--muted); }
-.area__label {
-  margin: 1.75rem 0 .75rem;
-  font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--teal);
+/* Di cosa mi occupo: tre percorsi per età */
+.path--teen    { --soft: var(--teen-soft); }
+.path--young   { --soft: var(--young-soft); }
+.path--parents { --soft: var(--parents-soft); }
+
+/* Le card condividono le righe (icona / nome / età / testo) così i testi partono allineati */
+.paths { display: grid; gap: 1.25rem; }
+.path {
+  display: grid; grid-template-rows: subgrid; grid-row: span 4;
+  row-gap: 0;
+  align-content: start;
+  background: var(--soft);
+  border-radius: var(--radius);
+  padding: 2.25rem 2rem 2.5rem;
+  min-width: 0;
 }
-.area__signs { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
-.area__signs li { position: relative; padding-left: 1.4rem; font-size: 1rem; }
-.area__signs li::before {
-  content: ""; position: absolute; left: 0; top: .7em;
-  width: 7px; height: 7px; border-radius: 50%; background: var(--sage);
+.path__icon { width: 88px; height: 88px; margin: -.5rem 0 1.25rem -.5rem; }
+.path__name {
+  font-weight: 400;
+  font-size: clamp(1.7rem, 2.4vw, 2.1rem);
+  letter-spacing: -.015em;
+  margin-bottom: .5rem;
+  align-self: end;
 }
+.path__age {
+  font-size: 1rem; color: var(--ink);
+  font-variant-numeric: lining-nums;
+  margin-bottom: 1.25rem;
+}
+.path--parents .path__text { grid-row: 4; }
+.path__text { color: var(--ink); opacity: .85; font-size: 1rem; margin: 0; }
+
 @media (min-width: 900px) {
-  .areas { grid-template-columns: repeat(3, 1fr); gap: 4rem; }
+  .paths { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Difficoltà comuni: piccole etichette centrate sotto le card */
+.needs { margin-top: 1.5rem; }
+.needs__list {
+  list-style: none; margin: 0 auto; padding: 0;
+  max-width: 900px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem;
+}
+.needs__list li {
+  padding: .5rem 1.05rem;
+  background: var(--pill);
+  border-radius: 999px;
+  font-family: var(--serif); font-size: 1rem; line-height: 1.3;
 }
 
 /* Inizia un percorso: passi */
