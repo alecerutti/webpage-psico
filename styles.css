@@ -1,8 +1,7 @@
 /* ---------- Tokens ---------- */
-/* Palette allineata al logo dello studio: salvia chiaro + verde petrolio */
+/* Base avorio + verde petrolio del logo per bottoni e accenti; toni caldi tenui per le superfici */
 :root {
   --bg: #F7F4EF;          /* avorio caldo */
-  --tint: #EFEBE3;        /* sabbia chiara per sezioni alternate */
   --surface: #FBF9F6;
   --ink: #26332F;         /* ardesia verdastra, non nero */
   --muted: #586560;
@@ -11,16 +10,18 @@
   --sand: #C4A487;
   --line: rgba(38, 51, 47, .13);
 
-  /* Accenti caldi delle aree di intervento */
+  /* Toni caldi: colori pieni (icone) e fondi tenui (riquadri) */
   --rose: #C9A0A6;        /* rosa antico */
   --terracotta: #D6977B;
   --olive: #A8AD6E;
   --mauve: #CDB1BC;
   --peach: #F0C6A4;
-  --teen-soft: rgba(201, 160, 166, .17);
-  --young-soft: rgba(168, 173, 110, .15);
-  --parents-soft: rgba(205, 177, 188, .2);
+  --rose-soft: rgba(201, 160, 166, .17);
+  --olive-soft: rgba(168, 173, 110, .15);
+  --mauve-soft: rgba(205, 177, 188, .2);
+  --peach-soft: rgba(240, 198, 164, .22);
   --pill: rgba(214, 151, 123, .12);
+  --pill-hover: rgba(214, 151, 123, .2);
 
   --serif: "Fraunces", Georgia, serif;
   --sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -153,7 +154,7 @@ em { font-style: italic; color: var(--teal); }
   position: absolute;
   width: 60vmax; height: 60vmax;
   right: -20vmax; top: -22vmax;
-  background: radial-gradient(circle, rgba(157, 186, 138, .26), rgba(196, 164, 135, .12) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(201, 160, 166, .26), rgba(240, 198, 164, .16) 45%, transparent 70%);
   filter: blur(20px);
   pointer-events: none;
 }
@@ -169,7 +170,6 @@ em { font-style: italic; color: var(--teal); }
 
 /* ---------- Sections ---------- */
 .section { padding: clamp(5rem, 11vw, 8.5rem) 0; }
-.section--tint { background: var(--tint); }
 .section__head { max-width: 680px; margin-bottom: clamp(3rem, 6vw, 4.5rem); }
 
 /* About */
@@ -196,9 +196,11 @@ em { font-style: italic; color: var(--teal); }
 }
 
 /* Di cosa mi occupo: tre percorsi per età */
-.path--teen    { --soft: var(--teen-soft); }
-.path--young   { --soft: var(--young-soft); }
-.path--parents { --soft: var(--parents-soft); }
+/* Toni condivisi dai riquadri di tutto il sito */
+.tone-rose  { --soft: var(--rose-soft); }
+.tone-olive { --soft: var(--olive-soft); }
+.tone-mauve { --soft: var(--mauve-soft); }
+.tone-peach { --soft: var(--peach-soft); }
 
 /* Le card condividono le righe (icona / nome / età / testo) così i testi partono allineati */
 .paths { display: grid; gap: 1.25rem; }
@@ -247,20 +249,26 @@ em { font-style: italic; color: var(--teal); }
 
 /* Inizia un percorso: passi */
 .steps {
-  list-style: none; margin: 0 0 clamp(4rem, 8vw, 6rem); padding: 0;
-  display: grid; gap: 2rem;
+  list-style: none; margin: 0 0 clamp(3.5rem, 7vw, 5rem); padding: 0;
+  display: grid; gap: 1.25rem;
 }
-.step { display: flex; gap: 1.25rem; align-items: flex-start; }
+.step {
+  background: var(--soft);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem 2rem;
+  min-width: 0;
+}
 .step__num {
-  flex: none;
+  display: block;
   font-family: var(--serif); font-weight: 300;
-  font-size: 3rem; line-height: .9;
-  color: var(--sand);
+  font-size: 2.6rem; line-height: 1;
+  color: var(--terracotta);
+  margin-bottom: 1rem;
 }
-.step h3 { font-size: 1.2rem; margin-bottom: .35rem; }
-.step p { color: var(--muted); font-size: 1rem; margin: 0; }
+.step h3 { font-size: 1.25rem; margin-bottom: .4rem; }
+.step p { color: var(--ink); opacity: .85; font-size: 1rem; margin: 0; }
 @media (min-width: 900px) {
-  .steps { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+  .steps { grid-template-columns: repeat(3, 1fr); }
 }
 
 /* Galleria: striscia bassa, swipe nativo con scroll-snap */
@@ -300,7 +308,7 @@ em { font-style: italic; color: var(--teal); }
 /* Dove siamo: fascia compatta */
 .place {
   display: grid; gap: 1.75rem; align-items: center;
-  background: var(--surface);
+  background: var(--soft);
   border-radius: var(--radius);
   padding: 1.75rem;
   margin-bottom: 1.5rem;
@@ -355,7 +363,7 @@ em { font-style: italic; color: var(--teal); }
 /* Online + onorari */
 .practical { display: grid; gap: 1.5rem; }
 .panel {
-  background: var(--surface);
+  background: var(--soft);
   border-radius: var(--radius);
   padding: 2.25rem;
   min-width: 0;
@@ -380,10 +388,10 @@ em { font-style: italic; color: var(--teal); }
 .contact__item {
   display: flex; flex-direction: column; gap: .2rem;
   padding: 1.25rem 1.5rem; border-radius: 14px;
-  background: var(--tint); text-decoration: none;
+  background: var(--pill); text-decoration: none;
   transition: background .3s var(--ease);
 }
-.contact__item:hover { background: #E6E0D5; }
+.contact__item:hover { background: var(--pill-hover); }
 .contact__label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--teal); font-weight: 600; }
 .contact__value { font-family: var(--serif); font-size: 1.4rem; overflow-wrap: anywhere; }
 
@@ -394,8 +402,7 @@ em { font-style: italic; color: var(--teal); }
 
 /* Form */
 .form {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: var(--soft);
   border-radius: var(--radius);
   padding: clamp(1.5rem, 4vw, 2.75rem);
   display: grid; gap: 1.4rem;
@@ -411,7 +418,7 @@ em { font-style: italic; color: var(--teal); }
 .field input, .field textarea {
   width: 100%;
   font: inherit; font-size: 1rem; color: var(--ink);
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: .85rem 1rem;
@@ -433,7 +440,7 @@ em { font-style: italic; color: var(--teal); }
   display: inline-block;
   padding: .55rem 1.1rem;
   border: 1px solid var(--line); border-radius: 999px;
-  font-size: .95rem; background: var(--bg);
+  font-size: .95rem; background: var(--surface);
   transition: background .2s, color .2s, border-color .2s;
 }
 .choice input:checked + span { background: var(--teal); border-color: var(--teal); color: #fff; }

@@ -112,10 +112,10 @@
 
     status.hidden = false;
     if (!valid) {
-      status.textContent = 'Controlla nome, email e consenso privacy, poi invia di nuovo.';
+      status.textContent = 'Per inviare la richiesta servono nome, email e consenso privacy.';
       return;
     }
-    status.textContent = `Grazie ${form.nome.value.trim()}, ho ricevuto la tua richiesta. Ti ricontatto entro 24 ore lavorative.`;
+    status.textContent = `Grazie ${form.nome.value.trim()}, richiesta ricevuta. La risposta arriverà entro 24 ore lavorative.`;
     form.reset();
   });
 })();
