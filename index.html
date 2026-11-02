@@ -139,82 +139,62 @@
       <div class="container">
         <header class="section__head reveal">
           <p class="eyebrow">Inizia un percorso</p>
-          <h2>Il primo passo è più semplice di quanto si pensi.</h2>
+          <h2>Lo studio</h2>
         </header>
 
-        <!-- I tre passi riprendono i colori delle card delle aree -->
-        <ol class="steps">
-          <li class="step tone-rose reveal">
-            <span class="step__num">1</span>
-            <h3>Il contatto</h3>
-            <p>Telefono, email o modulo. La risposta arriva entro 24 ore lavorative.</p>
-          </li>
-          <li class="step tone-olive reveal">
-            <span class="step__num">2</span>
-            <h3>Il primo colloquio</h3>
-            <p>Un incontro per conoscersi e valutare insieme se e come procedere.</p>
-          </li>
-          <li class="step tone-mauve reveal">
-            <span class="step__num">3</span>
-            <h3>Il percorso</h3>
-            <p>Obiettivi e frequenza si definiscono insieme, nel rispetto dei tempi di ciascuno.</p>
-          </li>
-        </ol>
-
-        <!-- Lo studio: galleria + dove siamo -->
-        <div class="gallery reveal">
-          <div class="gallery__track" id="gallery-track" tabindex="0" role="region" aria-label="Foto dello studio">
-            <img src="assets/studio/stanza-1.jpg" alt="Stanza con divano, poltrona e una grande finestra" width="1800" height="1191" loading="lazy">
-            <img src="assets/studio/stanza-2.jpg" alt="Stanza con due poltrone chiare e una libreria" width="1800" height="1192" loading="lazy">
-            <img src="assets/studio/stanza-3.jpg" alt="Poltrona accanto alla portafinestra" width="1800" height="1192" loading="lazy">
-          </div>
-          <div class="gallery__nav" id="gallery-nav" hidden>
-            <button type="button" class="gallery__btn" data-dir="-1" aria-label="Foto precedente">←</button>
-            <button type="button" class="gallery__btn" data-dir="1" aria-label="Foto successiva">→</button>
-          </div>
-        </div>
-
-        <div class="place tone-peach reveal">
-          <div class="place__col">
-            <img class="place__logo" src="assets/studio/logo.png" alt="Logo Studio Clinico Porta Venezia" width="200" height="160" loading="lazy">
-            <div>
-              <h3>In studio</h3>
-              <p class="place__address">Studio Clinico Porta Venezia<br>Via Ciro Menotti 10, 20129 Milano</p>
+        <!-- Foto e indicazioni in un unico riquadro -->
+        <div class="studio tone-peach reveal">
+          <div class="gallery">
+            <div class="gallery__track" id="gallery-track" tabindex="0" role="region" aria-label="Foto dello studio">
+              <img src="assets/studio/stanza-1.jpg" alt="Stanza con divano, poltrona e una grande finestra" width="1800" height="1191" loading="lazy">
+              <img src="assets/studio/stanza-2.jpg" alt="Stanza con due poltrone chiare e una libreria" width="1800" height="1192" loading="lazy">
+              <img src="assets/studio/stanza-3.jpg" alt="Poltrona accanto alla portafinestra" width="1800" height="1192" loading="lazy">
+            </div>
+            <div class="gallery__nav" id="gallery-nav" hidden>
+              <div class="gallery__dots" id="gallery-dots"></div>
+              <div class="gallery__arrows">
+                <button type="button" class="gallery__btn" data-dir="-1" aria-label="Foto precedente">&larr;</button>
+                <button type="button" class="gallery__btn" data-dir="1" aria-label="Foto successiva">&rarr;</button>
+              </div>
             </div>
           </div>
 
-          <div class="place__col place__col--stack">
-            <p class="place__label">Come arrivare</p>
-            <ul class="transit">
-              <li><span class="line line--m1">M1</span> Porta Venezia</li>
-              <li><span class="line line--m4">M4</span> Dateo</li>
-              <li><span class="line line--s">S</span> Passante · Porta Venezia o Dateo</li>
-            </ul>
+          <div class="studio__info">
+            <div class="place__head">
+              <img class="place__logo" src="assets/studio/logo.png" alt="Logo Studio Clinico Porta Venezia" width="200" height="160" loading="lazy">
+              <div>
+                <h3>Studio Clinico Porta Venezia</h3>
+                <p class="place__address">Via Ciro Menotti 10, 20129 Milano</p>
+              </div>
+            </div>
+
+            <div>
+              <p class="place__label">Come arrivare</p>
+              <ul class="transit">
+                <li><span class="line line--m1">M1</span> Porta Venezia</li>
+                <li><span class="line line--m4">M4</span> Dateo</li>
+                <li><span class="line line--s">S</span> Passante · Porta Venezia o Dateo</li>
+              </ul>
+            </div>
+
+            <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Ciro+Menotti+10+Milano" target="_blank" rel="noopener" aria-label="Apri Via Ciro Menotti 10, Milano in Google Maps">
+              <img src="assets/mappa.jpg" alt="" width="1600" height="1000" loading="lazy">
+              <span class="map__cta">Apri in Maps</span>
+              <span class="map__credit">© OpenStreetMap</span>
+            </a>
           </div>
-
-          <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Ciro+Menotti+10+Milano" target="_blank" rel="noopener" aria-label="Apri Via Ciro Menotti 10, Milano in Google Maps">
-            <img src="assets/mappa.jpg" alt="" width="1600" height="1000" loading="lazy">
-            <span class="map__cta">Apri in Maps</span>
-            <span class="map__credit">© OpenStreetMap</span>
-          </a>
         </div>
 
-        <!-- Online + onorari -->
-        <div class="practical">
-          <article class="panel tone-olive reveal">
-            <h3>Online</h3>
-            <p>Sedute in videochiamata, da qualsiasi luogo. La ricerca mostra un'efficacia paragonabile agli incontri in presenza. Bastano un ambiente tranquillo e una connessione stabile.</p>
-          </article>
-          <article class="panel tone-mauve reveal">
-            <h3>Durata e onorari</h3>
-            <ul class="prices">
-              <li><span>Primo colloquio</span><span>€ 60</span></li>
-              <li><span>Seduta individuale · 50 min</span><span>€ 70</span></li>
-              <li><span>Seduta di coppia · 60 min</span><span>€ 90</span></li>
-            </ul>
-            <p class="note">Detraibili come spese sanitarie, con regolare fattura.</p>
-          </article>
-        </div>
+        <!-- Le sedute -->
+        <article class="panel tone-mauve reveal">
+          <h3>Le sedute</h3>
+          <ul class="prices">
+            <li><span>Primo colloquio</span><span>€ 60</span></li>
+            <li><span>Seduta individuale · 50 min</span><span>€ 70</span></li>
+            <li><span>Seduta di coppia · 60 min</span><span>€ 90</span></li>
+          </ul>
+          <p class="note">Detraibili come spese sanitarie, con regolare fattura.</p>
+        </article>
       </div>
     </section>
 

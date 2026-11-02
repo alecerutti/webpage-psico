@@ -70,23 +70,38 @@
     mobileBar.classList.toggle('is-hidden', entry.isIntersecting);
   }, { threshold: 0.15 }).observe(contact);
 
-  // Galleria: frecce visibili solo se le foto non entrano tutte
+  // Carosello dello studio: una foto alla volta, con pallini e frecce
   const track = document.getElementById('gallery-track');
   const galleryNav = document.getElementById('gallery-nav');
-  const [prevBtn, nextBtn] = galleryNav.querySelectorAll('button');
+  const dotsBox = document.getElementById('gallery-dots');
+  const slides = [...track.querySelectorAll('img')];
+  const [prevBtn, nextBtn] = galleryNav.querySelectorAll('.gallery__btn');
+
+  const goTo = (i) => track.scrollTo({ left: i * track.clientWidth, behavior: 'smooth' });
+
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'gallery__dot';
+    dot.setAttribute('aria-label', `Foto ${i + 1} di ${slides.length}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsBox.appendChild(dot);
+    return dot;
+  });
 
   const updateGallery = () => {
-    const max = track.scrollWidth - track.clientWidth;
-    galleryNav.hidden = max <= 4;
-    prevBtn.disabled = track.scrollLeft <= 1;
-    nextBtn.disabled = track.scrollLeft >= max - 1;
+    const current = Math.round(track.scrollLeft / track.clientWidth);
+    galleryNav.hidden = slides.length < 2;
+    dots.forEach((d, i) => d.classList.toggle('is-active', i === current));
+    prevBtn.disabled = current <= 0;
+    nextBtn.disabled = current >= slides.length - 1;
   };
 
-  galleryNav.addEventListener('click', (e) => {
-    const btn = e.target.closest('button');
-    if (!btn) return;
-    const step = track.querySelector('img').getBoundingClientRect().width + 16;
-    track.scrollBy({ left: step * Number(btn.dataset.dir), behavior: 'smooth' });
+  [prevBtn, nextBtn].forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const current = Math.round(track.scrollLeft / track.clientWidth);
+      goTo(current + Number(btn.dataset.dir));
+    });
   });
   track.addEventListener('scroll', updateGallery, { passive: true });
   window.addEventListener('resize', updateGallery);
