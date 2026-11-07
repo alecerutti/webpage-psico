@@ -44,7 +44,7 @@ body { background: var(--paper); }
 .hero .hero__inner { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; padding-bottom: clamp(10rem, 22vw, 16rem); }
 .hero .hero__aside { border: 0; padding: 0; max-width: 30rem; }
 @media (max-width: 52rem) {
-  .riso-sole { width: 10rem; right: -2.5rem; top: auto; bottom: 2.5rem; }   /* su telefono sta sopra la collina, lontano dal testo */
+  .riso-sole { width: 8rem; right: -2rem; top: auto; bottom: .5rem; }   /* su telefono sta sopra la collina, lontano dal testo */
   .riso-collina { height: 20%; }
   .hero .hero__inner { padding-bottom: 8rem; }
 }
