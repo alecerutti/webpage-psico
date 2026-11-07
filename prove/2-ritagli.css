@@ -1,0 +1,24 @@
+/* Prova 2 · Grandi ritagli tono su tono
+   Niente fasce colorate: la pagina è un unico foglio crema e grandi forme ritagliate (sole, arco,
+   foglia, coppa: le stesse delle card) stanno dietro al testo, a cavallo tra una sezione e l'altra,
+   con un leggero effetto di profondità allo scorrimento. Le forme sono create da 2-ritagli.js. */
+:root {
+  --field: var(--cream);
+  --t-peach: #F1D8C6;
+  --t-rose: #EFD6CE;
+  --t-sand: #EDE0CC;
+  --t-mauve: #EADBE3;
+}
+
+main, .hero { overflow-x: clip; }
+.hero, main > .section { position: relative; }
+main > .section { overflow: visible; }
+.hero > .wrap, main > .section > .wrap { position: relative; z-index: 1; }
+
+.cut { position: absolute; z-index: 0; pointer-events: none; will-change: transform; }
+.cut svg {
+  display: block; width: 100%; height: auto;
+  fill: var(--c);
+  transform: rotate(var(--rot, 0deg));
+  mix-blend-mode: multiply;
+}

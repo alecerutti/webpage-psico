@@ -1,0 +1,31 @@
+/* Stili comuni alle pagine di prova (prototipi di sfondo, da eliminare dopo la scelta) */
+
+/* Barra per passare da una prova all'altra: è uno strumento di lavoro, non fa parte del design */
+.prove-nav {
+  position: fixed; z-index: 100; left: 50%; bottom: 1rem;
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: .15rem;
+  padding: .3rem;
+  max-width: calc(100% - 1rem);
+  overflow-x: auto;
+  background: rgb(28 26 24 / .9);
+  border-radius: 999px;
+  font: 600 .85rem/1 system-ui, sans-serif;
+  box-shadow: 0 6px 20px rgb(0 0 0 / .2);
+}
+.prove-nav a {
+  flex: none;
+  padding: .5rem .75rem;
+  color: #fff; text-decoration: none;
+  border-radius: 999px;
+}
+.prove-nav a:hover { background: rgb(255 255 255 / .15); color: #fff; }
+.prove-nav a[aria-current="page"] { background: #fff; color: #1c1a18; }
+
+/* Grana di carta: rumore SVG generato dal browser, sovrapposto a tutta la pagina in "moltiplica" */
+.con-grana::after {
+  content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.32 0 0 0 0 0.26 0 0 0 0 0.2 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23g%29'/%3E%3C/svg%3E");
+  opacity: .45;
+  mix-blend-mode: multiply;
+}

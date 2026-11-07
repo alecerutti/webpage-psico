@@ -1,0 +1,13 @@
+/* Prova 4 · Acquerello
+   Macchie di colore dai bordi irregolari dietro apertura, ritratto, Come e dove e Contatti.
+   Qui sono simulate con filtri SVG (4-acquerello.js); nella versione definitiva sarebbero
+   acquerelli veri, dipinti su carta e scansionati. */
+:root { --field: var(--cream); }
+
+main, .hero { overflow-x: clip; }
+.hero, main > .section { position: relative; }
+main > .section { overflow: visible; }
+.hero > .wrap, main > .section > .wrap { position: relative; z-index: 1; }
+
+.wash { position: absolute; z-index: 0; pointer-events: none; }
+.wash svg { display: block; width: 100%; height: 100%; mix-blend-mode: multiply; }
