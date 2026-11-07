@@ -23,17 +23,19 @@
 }
 
 /* ---------- Tokens ---------- */
-/* Pochi colori, ognuno con un ruolo: crema come fondo, blu inchiostro come unico colore forte
-   (apertura, Come e dove, piè di pagina) che si alterna al crema; le tinte pastello vivono solo
-   nelle card delle aree, dove distinguono le fasce d'età. Il terracotta resta per i piccoli dettagli. */
+/* Pochi colori, tono su tono: crema come fondo, salvia chiaro come campitura che si alterna al crema
+   (apertura, Come e dove), un verde inchiostro in piccole dosi (link, pulsante, punti delle
+   illustrazioni, piè di pagina). Le tinte pastello vivono solo nelle card delle aree, dove
+   distinguono le fasce d'età; il terracotta resta per i piccoli dettagli. */
 :root {
   --cream: #F7F1E8;
   --card: #FDFAF5;
   --ink: #22262B;
   --muted: #5E5A55;
   --rule: #DED5C8;
-  --blue: #26395C;
-  --blue-soft: #C9D2E3;     /* testo secondario su fondo blu */
+  --field: #DFE2D2;         /* salvia chiaro: campiture */
+  --deep: #34433A;          /* verde inchiostro: link, pulsante, piè di pagina */
+  --deep-soft: #CDD3C6;     /* testo secondario sul verde inchiostro */
 
   /* Fondi delle card */
   --rose-bg: #F2DCD3;
@@ -94,7 +96,7 @@ p { text-wrap: pretty; }
 p + p { margin-top: 1em; }
 
 a {
-  color: var(--blue);
+  color: var(--deep);
   text-decoration-thickness: 1px;
   text-underline-offset: .2em;
 }
@@ -120,15 +122,15 @@ a:hover { color: var(--terracotta); }
 .f-olive { fill: var(--olive); }
 .f-moss { fill: var(--moss); }
 .f-mauve { fill: var(--mauve); }
-.f-blue { fill: var(--blue); }
-.s-blue { stroke: var(--blue); }
+.f-deep { fill: var(--deep); }
+.s-deep { stroke: var(--deep); }
 
 /* ---------- Barra di navigazione ---------- */
-/* In cima ha il blu dell'apertura; quando l'apertura esce dallo schermo diventa crema e mostra il nome */
+/* In cima ha il salvia dell'apertura; quando l'apertura esce dallo schermo diventa crema e mostra il nome */
 .bar {
-  --bar-fg: var(--cream);
+  --bar-fg: var(--ink);
   position: sticky; top: 0; z-index: 20;
-  background: var(--blue);
+  background: var(--field);
   transition: background-color .35s var(--ease), box-shadow .35s var(--ease);
 }
 .bar.is-stuck { --bar-fg: var(--ink); background: var(--cream); box-shadow: 0 1px 0 var(--rule); }
@@ -168,8 +170,8 @@ a:hover { color: var(--terracotta); }
   .bar__name { display: block; }
 }
 
-/* ---------- Apertura: un frontespizio su fondo blu ---------- */
-.hero { background: var(--blue); color: var(--cream); }
+/* ---------- Apertura: un frontespizio su fondo salvia ---------- */
+.hero { background: var(--field); }
 
 .hero__inner {
   display: grid; gap: 2rem;
@@ -187,25 +189,25 @@ a:hover { color: var(--terracotta); }
   font-size: clamp(1.3rem, 1.05rem + .8vw, 1.65rem);
   line-height: 1.3;
 }
-.hero__who { margin-top: .75rem; color: var(--blue-soft); }
+.hero__who { margin-top: .75rem; color: var(--muted); }
 
 .hero__contacts {
   list-style: none; padding: 0;
   margin-top: 1.5rem;
   display: flex; flex-wrap: wrap; gap: .35rem 1.75rem;
 }
-.hero__contacts a { color: var(--cream); text-decoration-color: var(--peach); text-decoration-thickness: 1.5px; }
-.hero__contacts a:hover { color: var(--peach); }
+.hero__contacts a { color: var(--ink); text-decoration-color: var(--terracotta); text-decoration-thickness: 1.5px; }
+.hero__contacts a:hover { color: var(--terracotta); }
 
 @media (min-width: 52rem) {
   .hero__inner { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: end; gap: 4rem; }
-  .hero__aside { padding-bottom: .6rem; border-left: 1px solid rgb(247 241 232 / .25); padding-left: 2.5rem; }
+  .hero__aside { padding-bottom: .6rem; border-left: 1px solid rgb(34 38 43 / .18); padding-left: 2.5rem; }
 }
 
 /* ---------- Sezioni ---------- */
 .section { padding-block: var(--space); overflow-x: clip; }
 .section--cream + .section--cream { padding-top: 0; }
-.section--blue { background: var(--blue); color: var(--cream); }
+.section--tint { background: var(--field); }
 
 .section__title {
   font-size: clamp(2.3rem, 1.6rem + 2.6vw, 3.6rem);
@@ -289,10 +291,7 @@ a:hover { color: var(--terracotta); }
   border-radius: 50%; background: var(--terracotta);
 }
 
-/* ---------- Come e dove (fondo blu) ---------- */
-.section--blue a { color: var(--peach); }
-.section--blue a:hover { color: var(--cream); }
-.section--blue .small { color: var(--blue-soft); }
+/* ---------- Come e dove (fondo salvia) ---------- */
 
 .how { display: grid; gap: 2.25rem; }
 .block { max-width: var(--measure); min-width: 0; }
@@ -304,14 +303,13 @@ a:hover { color: var(--terracotta); }
 .fees { width: 100%; border-collapse: collapse; margin-block: .25rem 1rem; }
 .fees th, .fees td {
   padding: .55rem 0;
-  border-bottom: 1px solid rgb(247 241 232 / .22);
+  border-bottom: 1px solid rgb(34 38 43 / .16);
   text-align: left; font-weight: 400; vertical-align: baseline;
 }
-.fees tr:first-child > * { border-top: 1px solid rgb(247 241 232 / .22); }
+.fees tr:first-child > * { border-top: 1px solid rgb(34 38 43 / .16); }
 .fees td {
   text-align: right; white-space: nowrap; padding-left: 1rem;
   font-family: var(--serif); font-size: 1.2em; font-variant-numeric: tabular-nums;
-  color: var(--peach);
 }
 
 /* Lo studio: foto che scorrono, indicazioni a destra */
@@ -346,15 +344,15 @@ a:hover { color: var(--terracotta); }
 .gallery__btn {
   width: 2.75rem; height: 2.75rem;
   display: grid; place-items: center;
-  font: inherit; color: var(--cream);
+  font: inherit; color: var(--ink);
   background: none;
-  border: 1px solid rgb(247 241 232 / .4); border-radius: 50%;
+  border: 1px solid rgb(34 38 43 / .25); border-radius: 50%;
   cursor: pointer;
   transition: background-color .2s, color .2s, opacity .2s;
 }
-.gallery__btn:hover:not(:disabled) { background: var(--cream); color: var(--blue); }
+.gallery__btn:hover:not(:disabled) { background: var(--deep); border-color: var(--deep); color: var(--cream); }
 .gallery__btn:disabled { opacity: .3; cursor: default; }
-.gallery__count { font-family: var(--serif); color: var(--blue-soft); font-variant-numeric: tabular-nums; min-width: 3.5ch; text-align: center; }
+.gallery__count { font-family: var(--serif); color: var(--muted); font-variant-numeric: tabular-nums; min-width: 3.5ch; text-align: center; }
 
 .studio__info { min-width: 0; }
 .section .studio__info h3 { font-size: 2rem; font-weight: 400; margin-bottom: .75rem; }
@@ -422,11 +420,11 @@ address { font-style: normal; }
   border-radius: 8px;
 }
 .form textarea { resize: vertical; min-height: 7.5rem; line-height: 1.5; }
-.form input:focus, .form textarea:focus { outline: 2px solid var(--blue); outline-offset: -1px; border-color: var(--blue); }
+.form input:focus, .form textarea:focus { outline: 2px solid var(--deep); outline-offset: -1px; border-color: var(--deep); }
 .form input:user-invalid { border-color: #9B3B2F; }
 .field__hint { font-size: .875em; color: var(--muted); }
 
-.form input[type="checkbox"] { accent-color: var(--blue); width: 1.05rem; height: 1.05rem; margin: 0; flex: none; }
+.form input[type="checkbox"] { accent-color: var(--deep); width: 1.05rem; height: 1.05rem; margin: 0; flex: none; }
 
 .form__row { display: grid; gap: 1.5rem; }
 @media (min-width: 40rem) { .form__row { grid-template-columns: 1fr 1fr; } }
@@ -437,7 +435,7 @@ address { font-style: normal; }
 .button {
   font: inherit; font-weight: 600;
   padding: .8rem 1.75rem;
-  color: var(--cream); background: var(--blue);
+  color: var(--cream); background: var(--deep);
   border: 0; border-radius: 999px;
   cursor: pointer;
   transition: background-color .2s;
@@ -450,8 +448,8 @@ address { font-style: normal; }
   border-left: 3px solid var(--olive);
 }
 
-/* ---------- Piè di pagina (blu) ---------- */
-.footer { background: var(--blue); color: var(--blue-soft); }
+/* ---------- Piè di pagina (verde inchiostro) ---------- */
+.footer { background: var(--deep); color: var(--deep-soft); }
 .footer__inner {
   display: grid; gap: .25rem;
   padding-block: 2rem 2.5rem;
@@ -481,7 +479,7 @@ address { font-style: normal; }
 
 /* ---------- Stampa ---------- */
 @media print {
-  body, .hero, .section--blue, .footer { background: #fff; color: #000; }
+  body, .hero, .section--tint, .footer { background: #fff; color: #000; }
   .bar, .skip, .gallery, .form { display: none; }
   a { color: inherit; text-decoration: none; }
 }
