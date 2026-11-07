@@ -1,12 +1,13 @@
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  // Barra in alto: quando l'intestazione esce dallo schermo compaiono il nome e una riga sottile
+  // Barra in alto: finché si vede l'apertura ha il suo colore; quando l'apertura passa sotto la barra
+  // diventa crema e mostra il nome
   const bar = document.getElementById('bar');
-  const masthead = document.querySelector('.masthead');
+  const hero = document.querySelector('.hero');
   new IntersectionObserver(([entry]) => {
     bar.classList.toggle('is-stuck', !entry.isIntersecting);
-  }).observe(masthead);
+  }, { rootMargin: `-${bar.offsetHeight}px 0px 0px 0px` }).observe(hero);
 
   // Voce attiva della barra in base alla sezione al centro dello schermo
   const links = [...bar.querySelectorAll('.nav a')];

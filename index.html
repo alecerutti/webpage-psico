@@ -7,7 +7,7 @@
   <meta name="description" content="Psicologa e psicoterapeuta a Milano, Porta Venezia, e online. Preadolescenti, adolescenti, giovani adulti e consulenza ai genitori.">
   <!-- Sviluppo: non indicizzare. Rimuovere al lancio. -->
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#FAF9F6">
+  <meta name="theme-color" content="#F0D6C9">
   <link rel="preload" href="assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-opsz.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
@@ -17,21 +17,7 @@
 
   <a class="skip" href="#main">Vai al contenuto</a>
 
-  <!-- Intestazione come una carta intestata: nome a sinistra, recapiti a destra -->
-  <header class="masthead" id="top">
-    <div class="wrap masthead__inner">
-      <div>
-        <h1 class="name">Sofia Bonsignore</h1>
-        <p class="role">Psicologa · Psicoterapeuta<br>Milano, Porta Venezia e online</p>
-      </div>
-      <ul class="letterhead">
-        <li><a href="tel:+390200000000">02 0000 0000</a></li>
-        <li><a href="mailto:studio@sofiabonsignore.it">studio@sofiabonsignore.it</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- Barra che resta in alto: il nome compare quando l'intestazione esce dallo schermo -->
+  <!-- Barra che resta in alto: sul fondo rosa dell'apertura, poi crema con il nome quando si scorre -->
   <nav class="bar" id="bar" aria-label="Principale">
     <div class="wrap bar__inner">
       <a class="bar__name" href="#top">Sofia Bonsignore</a>
@@ -44,10 +30,36 @@
     </div>
   </nav>
 
+  <header class="hero" id="top">
+    <div class="wrap hero__inner">
+      <div class="hero__text">
+        <h1 class="name" id="name">Sofia Bonsignore</h1>
+        <p class="role">Psicologa e psicoterapeuta<br>a Milano, Porta Venezia, e online</p>
+        <p class="hero__who">Preadolescenti, adolescenti, giovani adulti e genitori</p>
+        <ul class="hero__contacts">
+          <li><a href="tel:+390200000000">02 0000 0000</a></li>
+          <li><a href="mailto:studio@sofiabonsignore.it">studio@sofiabonsignore.it</a></li>
+        </ul>
+      </div>
+
+      <!-- Collage a carta ritagliata: le forme delle tre aree (foglie, soglia, coppa) appoggiate sul bordo -->
+      <svg class="hero__collage" viewBox="0 0 480 400" aria-hidden="true">
+        <circle cx="352" cy="128" r="74" class="f-peach"/>
+        <path d="M150 400V196A110 110 0 0 1 370 196V400Z" class="f-olive"/>
+        <path d="M216 400V238A44 44 0 0 1 304 238V400Z" class="f-moss"/>
+        <path d="M152 306C92 296 50 246 40 184C102 194 142 244 152 306Z" class="f-terracotta"/>
+        <path d="M322 118C342 66 392 34 446 38C432 90 384 120 322 118Z" class="f-rose-deep"/>
+        <circle cx="96" cy="96" r="15" class="f-blue"/>
+        <path d="M384 400A52 52 0 0 1 480 400Z" class="f-mauve"/>
+      </svg>
+    </div>
+  </header>
+
   <main id="main">
 
-    <section class="section" id="chi-sono" aria-labelledby="h-chi-sono">
+    <section class="section section--cream" id="chi-sono" aria-labelledby="h-chi-sono">
       <div class="wrap about">
+        <!-- Ritratto ritagliato ad arco su un arco colorato sfalsato, con un cerchio pesca -->
         <figure class="portrait">
           <img src="dummy-photo.jpg" alt="Ritratto della dottoressa Sofia Bonsignore" width="1800" height="1005">
         </figure>
@@ -57,26 +69,12 @@
           <!-- Testo provvisorio -->
           <p>Sono psicologa e psicoterapeuta a orientamento cognitivo-comportamentale. Mi occupo di valutazione e trattamento psicologico di preadolescenti, adolescenti e giovani adulti, e di consulenza ai genitori.</p>
           <p>Ogni percorso inizia con una fase di valutazione, al termine della quale vengono condivisi gli obiettivi e le modalità di lavoro. L'andamento della terapia è verificato periodicamente nel corso degli incontri.</p>
-
-          <dl class="cv">
-            <div>
-              <dt>2014</dt>
-              <dd>Laurea magistrale in Psicologia clinica, Università degli Studi di Milano-Bicocca</dd>
-            </div>
-            <div>
-              <dt>2016</dt>
-              <dd>Iscrizione all'Ordine degli Psicologi della Lombardia, n. 00000</dd>
-            </div>
-            <div>
-              <dt>2020</dt>
-              <dd>Specializzazione in Psicoterapia cognitivo-comportamentale</dd>
-            </div>
-          </dl>
+          <p class="training">Laureata in Psicologia clinica all'Università degli Studi di Milano-Bicocca, specializzata in Psicoterapia cognitivo-comportamentale. Iscritta all'Ordine degli Psicologi della Lombardia, n. 00000.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="aree" aria-labelledby="h-aree">
+    <section class="section section--cream" id="aree" aria-labelledby="h-aree">
       <div class="wrap">
         <h2 class="section__title" id="h-aree">Aree di intervento</h2>
 
@@ -90,8 +88,8 @@
                 <circle cx="198" cy="86" r="40" class="f-peach"/>
                 <path d="M155 92C164 64 190 48 220 50C210 76 184 94 155 92Z" class="f-rose-deep"/>
                 <path d="M149 128C122 126 100 108 94 84C122 86 144 102 149 128Z" class="f-terracotta"/>
-                <path d="M150 162C146 132 148 106 156 76" fill="none" class="s-accent" stroke-width="5" stroke-linecap="round"/>
-                <path d="M100 172Q150 142 200 172Z" class="f-accent"/>
+                <path d="M150 162C146 132 148 106 156 76" fill="none" class="s-blue" stroke-width="5" stroke-linecap="round"/>
+                <path d="M100 172Q150 142 200 172Z" class="f-blue"/>
               </svg>
             </div>
             <h3 class="area__name">Preadolescenti e adolescenti</h3>
@@ -107,7 +105,7 @@
               <svg viewBox="0 0 300 200" aria-hidden="true">
                 <path d="M86 168V98A54 54 0 0 1 194 98V168Z" class="f-olive"/>
                 <path d="M114 168V106A26 26 0 0 1 166 106V168Z" class="f-moss"/>
-                <circle cx="228" cy="68" r="16" class="f-accent"/>
+                <circle cx="228" cy="68" r="16" class="f-blue"/>
                 <rect x="44" y="166" width="212" height="6" rx="3" class="f-moss"/>
               </svg>
             </div>
@@ -129,7 +127,7 @@
                 </defs>
                 <circle cx="150" cy="100" r="64" class="f-mauve" mask="url(#cut-genitori)"/>
                 <circle cx="153" cy="110" r="25" class="f-peach"/>
-                <circle cx="226" cy="54" r="8" class="f-accent"/>
+                <circle cx="226" cy="54" r="8" class="f-blue"/>
               </svg>
             </div>
             <h3 class="area__name">Genitori</h3>
@@ -156,7 +154,7 @@
       </div>
     </section>
 
-    <section class="section" id="come-e-dove" aria-labelledby="h-come-e-dove">
+    <section class="section section--blue" id="come-e-dove" aria-labelledby="h-come-e-dove">
       <div class="wrap">
         <h2 class="section__title" id="h-come-e-dove">Come e dove</h2>
 
@@ -186,7 +184,7 @@
           </div>
         </div>
 
-        <!-- Lo studio: foto che scorrono (swipe o frecce) e indicazioni accanto -->
+        <!-- Lo studio: foto che scorrono (swipe o frecce) su un cerchio ritagliato, indicazioni accanto -->
         <div class="studio">
           <div class="gallery">
             <div class="gallery__track" id="gallery-track" tabindex="0" role="region" aria-label="Foto dello studio">
@@ -218,7 +216,7 @@
       </div>
     </section>
 
-    <section class="section" id="contatti" aria-labelledby="h-contatti">
+    <section class="section section--sand" id="contatti" aria-labelledby="h-contatti">
       <div class="wrap contact">
         <div class="contact__intro">
           <h2 class="section__title" id="h-contatti">Contatti</h2>
