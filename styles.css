@@ -23,7 +23,7 @@
 }
 
 /* ---------- Tokens ---------- */
-/* Pochi colori, tono su tono: crema come fondo, salvia chiaro come campitura che si alterna al crema
+/* Pochi colori, tono su tono: crema come fondo, sabbia calda come campitura che si alterna al crema
    (apertura, Come e dove), un verde inchiostro in piccole dosi (link, pulsante, punti delle
    illustrazioni, piè di pagina). Le tinte pastello vivono solo nelle card delle aree, dove
    distinguono le fasce d'età; il terracotta resta per i piccoli dettagli. */
@@ -33,7 +33,7 @@
   --ink: #22262B;
   --muted: #5E5A55;
   --rule: #DED5C8;
-  --field: #DFE2D2;         /* salvia chiaro: campiture */
+  --field: #EDE2D3;         /* sabbia calda: campiture */
   --deep: #34433A;          /* verde inchiostro: link, pulsante, piè di pagina */
   --deep-soft: #CDD3C6;     /* testo secondario sul verde inchiostro */
 
@@ -59,6 +59,8 @@
   --radius-lg: 22px;
   --bar-h: 3.5rem;
   --ease: cubic-bezier(.22, .61, .36, 1);
+  /* Grana di carta: rumore SVG generato dal browser */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.32 0 0 0 0 0.26 0 0 0 0 0.2 0 0 0 0.6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23g%29'/%3E%3C/svg%3E");
 }
 
 /* ---------- Base ---------- */
@@ -123,10 +125,11 @@ a:hover { color: var(--terracotta); }
 .f-moss { fill: var(--moss); }
 .f-mauve { fill: var(--mauve); }
 .f-deep { fill: var(--deep); }
+.f-sand { fill: #DCC6AA; }
 .s-deep { stroke: var(--deep); }
 
 /* ---------- Barra di navigazione ---------- */
-/* In cima ha il salvia dell'apertura; quando l'apertura esce dallo schermo diventa crema e mostra il nome */
+/* In cima ha la sabbia dell'apertura; quando l'apertura esce dallo schermo diventa crema e mostra il nome */
 .bar {
   --bar-fg: var(--ink);
   position: sticky; top: 0; z-index: 20;
@@ -134,6 +137,15 @@ a:hover { color: var(--terracotta); }
   transition: background-color .35s var(--ease), box-shadow .35s var(--ease);
 }
 .bar.is-stuck { --bar-fg: var(--ink); background: var(--cream); box-shadow: 0 1px 0 var(--rule); }
+.bar__inner { position: relative; z-index: 1; }
+/* Sopra l'apertura la barra ha la stessa grana di carta, così le due superfici sono una sola */
+.bar::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: var(--grain);
+  opacity: .45; mix-blend-mode: multiply;
+  transition: opacity .35s var(--ease);
+}
+.bar.is-stuck::after { opacity: 0; }
 
 .bar__inner {
   display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
@@ -170,13 +182,41 @@ a:hover { color: var(--terracotta); }
   .bar__name { display: block; }
 }
 
-/* ---------- Apertura: un frontespizio su fondo salvia ---------- */
-.hero { background: var(--field); }
+/* ---------- Apertura: testo a sinistra, ritagli di carta a destra, grana di carta ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--field);
+  min-height: min(calc(100svh - var(--bar-h)), 46rem);
+  display: flex; align-items: center;
+}
+.hero > .wrap { position: relative; z-index: 3; }
+
+/* Grana di carta solo sull'apertura: rumore SVG generato dal browser, in "moltiplica" */
+.hero::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background-image: var(--grain);
+  opacity: .45;
+  mix-blend-mode: multiply;
+}
+
+/* Il "mobile" di ritagli: posizioni e misure in --x/--y/--w (su telefono --mx/--my/--mw);
+   il movimento lo calcola script.js */
+.ritagli { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.ritaglio {
+  position: absolute;
+  left: var(--x); top: var(--y); width: var(--w);
+  translate: -50% -50%;
+  will-change: transform;
+}
+.ritaglio svg { display: block; width: 100%; height: auto; }
 
 .hero__inner {
-  display: grid; gap: 2rem;
+  display: grid; gap: 1.75rem;
+  width: min(72rem, 100% - 2 * var(--gutter));
   padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 6rem);
 }
+.hero__inner > * { max-width: 34rem; }
 
 .name {
   font-size: clamp(3rem, 1.6rem + 6vw, 6.5rem);
@@ -199,9 +239,10 @@ a:hover { color: var(--terracotta); }
 .hero__contacts a { color: var(--ink); text-decoration-color: var(--terracotta); text-decoration-thickness: 1.5px; }
 .hero__contacts a:hover { color: var(--terracotta); }
 
-@media (min-width: 52rem) {
-  .hero__inner { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: end; gap: 4rem; }
-  .hero__aside { padding-bottom: .6rem; border-left: 1px solid rgb(34 38 43 / .18); padding-left: 2.5rem; }
+/* Telefono: il testo sta in alto, i ritagli in una fascia in basso */
+@media (max-width: 51.99rem) {
+  .hero { min-height: 44rem; align-items: flex-start; }
+  .ritaglio { left: var(--mx, var(--x)); top: var(--my, var(--y)); width: var(--mw, var(--w)); }
 }
 
 /* ---------- Sezioni ---------- */
@@ -311,7 +352,7 @@ a:hover { color: var(--terracotta); }
   border-radius: 50%; background: var(--terracotta);
 }
 
-/* ---------- Come e dove (fondo salvia) ---------- */
+/* ---------- Come e dove (fondo sabbia) ---------- */
 
 .how { display: grid; gap: 2.25rem; }
 .block { max-width: var(--measure); min-width: 0; }

@@ -7,7 +7,7 @@
   <meta name="description" content="Psicologa e psicoterapeuta a Milano, Porta Venezia, e online. Preadolescenti, adolescenti, giovani adulti e consulenza ai genitori.">
   <!-- Sviluppo: non indicizzare. Rimuovere al lancio. -->
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#DFE2D2">
+  <meta name="theme-color" content="#EDE2D3">
   <link rel="preload" href="assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-opsz.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
@@ -17,7 +17,7 @@
 
   <a class="skip" href="#main">Vai al contenuto</a>
 
-  <!-- Barra che resta in alto: sul salvia dell'apertura, poi crema con il nome quando si scorre -->
+  <!-- Barra che resta in alto: sulla sabbia dell'apertura, poi crema con il nome quando si scorre -->
   <nav class="bar" id="bar" aria-label="Principale">
     <div class="wrap bar__inner">
       <a class="bar__name" href="#top">Sofia Bonsignore</a>
@@ -30,8 +30,30 @@
     </div>
   </nav>
 
-  <!-- Apertura come un frontespizio: nome a sinistra, qualifica e recapiti a destra -->
+  <!-- Apertura: testo a sinistra; a destra un "mobile" di ritagli di carta (le forme delle aree)
+       che si muovono con inerzia seguendo il mouse, ciascuno a una profondità diversa (data-d).
+       Su telefono e senza mouse fluttuano lentissimi; con "riduci movimento" restano fermi. -->
   <header class="hero" id="top">
+    <div class="ritagli" aria-hidden="true">
+      <span class="ritaglio" data-d="0.35" data-r="0" style="--x:66%;--y:44%;--w:clamp(9rem,19vw,17rem);--mx:72%;--my:76%;--mw:9rem">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" class="f-peach"/></svg></span>
+      <span class="ritaglio" data-d="0.8" data-r="-18" style="--x:84%;--y:24%;--w:clamp(4.5rem,9vw,8rem);--mx:90%;--my:62%;--mw:4.5rem">
+        <svg viewBox="0 0 100 100"><path d="M4 96C8 46 46 8 96 4C92 54 54 92 4 96Z" class="f-terracotta"/></svg></span>
+      <span class="ritaglio" data-d="0.55" data-r="0" style="--x:80%;--y:68%;--w:clamp(4rem,7.5vw,7rem);--mx:52%;--my:84%;--mw:3.6rem">
+        <svg viewBox="0 0 100 150"><path d="M0 150V50A50 50 0 0 1 100 50V150Z" class="f-mauve"/></svg></span>
+      <span class="ritaglio" data-d="1" data-r="12" style="--x:55%;--y:76%;--w:clamp(4rem,7vw,6.5rem);--mx:24%;--my:90%;--mw:3.8rem">
+        <svg viewBox="0 0 100 100"><path d="M0 40A50 50 0 0 0 100 40A60 60 0 0 1 0 40Z" class="f-rose-deep"/></svg></span>
+      <span class="ritaglio" data-d="0.65" data-r="40" style="--x:93%;--y:84%;--w:clamp(3rem,5vw,4.5rem);--mx:8%;--my:72%;--mw:2.6rem">
+        <svg viewBox="0 0 100 100"><path d="M4 96C8 46 46 8 96 4C92 54 54 92 4 96Z" class="f-rose-deep"/></svg></span>
+      <span class="ritaglio" data-d="0.25" data-r="0" style="--x:92%;--y:6%;--w:clamp(5rem,10vw,9rem);--mx:96%;--my:4%;--mw:5rem">
+        <svg viewBox="0 0 100 50"><path d="M0 0A50 50 0 0 0 100 0Z" class="f-sand"/></svg></span>
+      <span class="ritaglio" data-d="1.2" data-r="0" style="--x:58%;--y:22%;--w:1.1rem;--mx:66%;--my:58%;--mw:.9rem">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" class="f-deep"/></svg></span>
+      <span class="ritaglio" data-d="0.9" data-r="0" style="--x:72%;--y:90%;--w:.7rem;--mx:38%;--my:70%;--mw:.6rem">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" class="f-deep"/></svg></span>
+      <span class="ritaglio" data-d="0.45" data-r="0" style="--x:47%;--y:40%;--w:.85rem;--mx:86%;--my:94%;--mw:.7rem">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" class="f-terracotta"/></svg></span>
+    </div>
     <div class="wrap hero__inner">
       <h1 class="name" id="name">Sofia Bonsignore</h1>
       <div class="hero__aside">

@@ -51,6 +51,49 @@
   controls.hidden = total < 2;
   update();
 
+  // Apertura: "mobile" di ritagli di carta. Ogni ritaglio ha una profondità (data-d): seguendo il
+  // mouse, i più vicini si spostano e ruotano di più, con inerzia, come carta mossa da un respiro.
+  // Senza mouse (telefono) fluttuano lentissimi; con "riduci movimento" restano fermi; il calcolo
+  // si ferma quando l'apertura non è visibile.
+  const pieces = [...hero.querySelectorAll('.ritaglio')].map((el, i) => ({
+    el, depth: Number(el.dataset.d) || 0.5, baseRot: Number(el.dataset.r) || 0,
+    phase: i * 1.9, x: 0, y: 0, rot: 0,
+  }));
+  const place = (p, x, y, rot) => {
+    p.el.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) rotate(${(p.baseRot + rot).toFixed(2)}deg)`;
+  };
+  if (reduceMotion.matches) {
+    pieces.forEach((p) => place(p, 0, 0, 0));
+  } else if (pieces.length) {
+    let targetX = 0, targetY = 0, heroVisible = true, frame = 0;
+    hero.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse') return;
+      const r = hero.getBoundingClientRect();
+      targetX = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      targetY = ((e.clientY - r.top) / r.height - 0.5) * 2;
+    });
+    hero.addEventListener('pointerleave', () => { targetX = 0; targetY = 0; });
+
+    const animate = (t) => {
+      frame = 0;
+      if (!heroVisible) return;
+      for (const p of pieces) {
+        p.x += (-targetX * p.depth * 42 - p.x) * 0.045;
+        p.y += (-targetY * p.depth * 30 - p.y) * 0.045;
+        p.rot += (targetX * p.depth * 9 - p.rot) * 0.04;
+        const driftX = Math.sin(t / 2700 + p.phase) * 5 * p.depth;
+        const driftY = Math.cos(t / 3300 + p.phase) * 7 * p.depth;
+        const sway = Math.sin(t / 4100 + p.phase) * 2;
+        place(p, p.x + driftX, p.y + driftY, p.rot + sway);
+      }
+      frame = requestAnimationFrame(animate);
+    };
+    new IntersectionObserver(([entry]) => {
+      heroVisible = entry.isIntersecting;
+      if (heroVisible && !frame) frame = requestAnimationFrame(animate);
+    }).observe(hero);
+  }
+
   // Modulo dimostrativo: la validazione è quella nativa del browser (required/type), quindi submit
   // arriva solo a modulo valido. In produzione l'invio passa da un servizio come Formspree o Web3Forms.
   const form = document.getElementById('richiesta');
