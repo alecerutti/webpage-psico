@@ -12,27 +12,24 @@ SORGENTE = QUI.parent / "index.html"
 
 # (file, titolo, descrizione, css, js, classi del body)
 VARIANTI = [
-    ("1-grana", "Carta con grana",
-     "Le campiture restano ma diventano sabbia calda tono su tono, e tutta la pagina prende la grana di una carta stampata.",
+    ("1-grana", "Carta con grana (riferimento)",
+     "Prima serie, la più apprezzata: campiture in sabbia calda tono su tono e grana di carta stampata.",
      ["1-grana.css"], [], ["con-grana"]),
-    ("2-ritagli", "Grandi ritagli tono su tono",
-     "Un unico foglio crema; grandi forme ritagliate (sole, arco, foglia, coppa) dietro al testo, a cavallo tra le sezioni, con un leggero effetto di profondità.",
-     ["2-ritagli.css"], ["2-ritagli.js"], []),
-    ("3-tinta", "Tinta che cambia scorrendo",
-     "Nessun bordo tra le sezioni: il fondo passa lentamente da una tinta chiara all'altra (cipria, crema, rosa, albicocca, lilla) mentre si legge.",
-     ["3-tinta.css"], ["3-tinta.js"], []),
-    ("4-acquerello", "Acquerello",
-     "Macchie di colore dai bordi irregolari dietro le sezioni. Qui sono simulate; nella versione vera sarebbero acquerelli dipinti a mano e scansionati.",
-     ["4-acquerello.css"], ["4-acquerello.js"], []),
-    ("5-percorso", "Il percorso disegnato",
-     "Una linea sottile scende lungo i margini, attraversa la pagina tra una sezione e l'altra e si disegna mentre si scorre.",
-     ["5-percorso.css"], ["5-percorso.js"], []),
-    ("6-combinata", "Combinata (consigliata)",
-     "Grana di carta, tinta che cambia scorrendo e grandi ritagli tono su tono insieme.",
-     ["2-ritagli.css", "3-tinta.css"], ["2-ritagli.js", "3-tinta.js"], ["con-grana"]),
-    ("7-fogli", "Audace: fogli di carta",
-     "Ogni sezione è un foglio di carta colorata, appena ruotato, che si posa sul precedente quando entra nello schermo; nome enorme sopra un sole terracotta.",
-     ["7-fogli.css"], ["7-fogli.js"], ["con-grana"]),
+    ("8-paesaggio", "Paesaggio a carta ritagliata",
+     "L'apertura è un paesaggio di colline ritagliate con un sentiero verso una porta ad arco (lo studio); scorrendo il sole tramonta dietro le colline.",
+     ["serie2.css", "8-paesaggio.css"], ["8-paesaggio.js"], ["con-grana"]),
+    ("9-griglia", "Griglia a vista",
+     "La pagina è un foglio di progetto: linee sottili fisse, apertura a mosaico di celle, foto che si compongono a tessere quando entrano nello schermo.",
+     ["serie2.css", "9-griglia.css"], ["9-griglia.js"], ["con-grana"]),
+    ("10-luce", "Luce dalla finestra",
+     "Sul fondo cade l'ombra sfocata di una finestra e di una pianta, che si sposta lentissima; scorrendo la luce passa dal mattino al pomeriggio.",
+     ["serie2.css", "10-luce.css"], ["10-luce.js"], ["con-grana"]),
+    ("11-indice", "Indice",
+     "Sotto il nome un grande indice delle sezioni; passando su una voce un'anteprima segue il mouse. Su telefono, miniature fisse.",
+     ["serie2.css", "11-indice.css"], ["11-indice.js"], ["con-grana"]),
+    ("12-riso", "Audace: risograph",
+     "Stampa in due inchiostri (rosso mattone e ocra) su carta grezza: foto in bicromia a puntini, fuori registro, passaggi tra sezioni fatti di puntini che sfumano.",
+     ["serie2.css", "12-riso.css"], ["12-riso.js"], ["con-grana"]),
 ]
 
 
@@ -88,7 +85,7 @@ def genera_indice() -> str:
 <body>
   <main class="wrap elenco">
     <h1>Prove di sfondo</h1>
-    <p>Sette prototipi dello stesso sito con sfondi diversi. Contenuti e struttura sono identici: cambia solo il trattamento del fondo. Conviene guardarli sia da computer sia da telefono, scorrendo tutta la pagina.</p>
+    <p>Seconda serie di prototipi (8–12), più la prova 1 come riferimento. I contenuti sono identici: cambia il trattamento visivo. Conviene guardarli sia da computer sia da telefono, scorrendo tutta la pagina.</p>
     <ol>
 {voci}
     </ol>

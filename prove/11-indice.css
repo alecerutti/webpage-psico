@@ -1,0 +1,69 @@
+/* Prova 11 · Indice
+   Sotto il nome, l'apertura diventa un grande indice delle sezioni in caratteri enormi.
+   Passando su una voce, un'anteprima (ritratto, illustrazione, foto dello studio) segue il
+   mouse e le altre voci si attenuano; un piccolo disco pesca accompagna il cursore.
+   Su telefono le anteprime diventano miniature fisse a destra. Costruito da 11-indice.js. */
+
+.hero .hero__inner { padding-bottom: clamp(1.5rem, 3vw, 2.5rem); }
+
+.indice { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; border-bottom: 1px solid rgb(59 48 42 / .2); }
+.indice li { border-top: 1px solid rgb(59 48 42 / .2); }
+.indice a {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1rem;
+  padding-block: clamp(.6rem, 1.4vw, 1.1rem);
+  color: var(--ink); text-decoration: none;
+  transition: opacity .4s var(--ease);
+}
+.indice__titolo {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(2.1rem, 1.2rem + 4.2vw, 5.4rem);
+  line-height: 1; letter-spacing: -.02em;
+  transition: transform .5s var(--ease), font-style .2s;
+}
+.indice__nota { color: var(--muted); font-size: .95rem; text-align: right; max-width: 18rem; }
+.indice__mini { display: none; }
+
+@media (hover: hover) {
+  .indice:hover a { opacity: .32; }
+  .indice a:hover { opacity: 1; }
+  .indice a:hover .indice__titolo { transform: translateX(1.25rem); font-style: italic; }
+}
+
+/* Anteprima che segue il mouse */
+.anteprima {
+  position: fixed; left: 0; top: 0; z-index: 30;
+  width: clamp(12rem, 20vw, 18rem); aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.85) rotate(-4deg);
+  transition: opacity .35s var(--ease), transform .45s var(--ease);
+  box-shadow: 0 20px 40px -20px rgb(60 40 25 / .45);
+}
+.anteprima.on { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(-3deg); }
+.anteprima > * { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .3s; }
+.anteprima > .on { opacity: 1; }
+.anteprima .arte { display: grid; place-items: center; background: var(--bg); padding: 1rem; }
+
+/* Disco che accompagna il cursore */
+.cursore {
+  position: fixed; left: 0; top: 0; z-index: 31;
+  width: 14px; height: 14px; margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--peach);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease);
+}
+.cursore.grande { width: 56px; height: 56px; margin: -28px 0 0 -28px; }
+
+/* Telefono: miniature fisse al posto dell'anteprima mobile */
+@media (hover: none), (max-width: 40rem) {
+  .indice__nota { display: none; }
+  .indice__mini { display: block; width: 3.25rem; height: 3.25rem; border-radius: 8px; overflow: hidden; }
+  .indice__mini > * { width: 100%; height: 100%; object-fit: cover; }
+  .indice__mini .arte { display: grid; place-items: center; background: var(--bg); }
+  .anteprima, .cursore { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .cursore { display: none; } }

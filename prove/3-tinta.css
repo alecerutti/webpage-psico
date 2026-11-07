@@ -1,9 +1,0 @@
-/* Prova 3 · Tinta che cambia scorrendo
-   Nessun bordo netto tra le sezioni: il fondo dell'intera pagina passa lentamente da una tinta
-   chiara all'altra mentre si legge (cipria, crema, rosa, albicocca, lilla). Tutte le tinte hanno
-   luminosità simile, quindi il contrasto del testo resta stabile. Il colore è calcolato da 3-tinta.js. */
-:root { --page: #F3DED2; --field: var(--page); }
-
-body { background: var(--page); }
-.hero, .section--tint { background: transparent; }
-.bar, .bar.is-stuck { background: var(--page); }
