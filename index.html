@@ -10,26 +10,32 @@
   <meta name="theme-color" content="#FAF9F6">
   <link rel="preload" href="assets/fonts/source-serif-4-opsz.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
   <a class="skip" href="#main">Vai al contenuto</a>
 
+  <!-- Intestazione come una carta intestata: nome a sinistra, recapiti a destra -->
   <header class="masthead">
     <div class="wrap masthead__inner">
       <div>
         <h1 class="name">Sofia Bonsignore</h1>
         <p class="role">Psicologa · Psicoterapeuta<br>Milano, Porta Venezia e online</p>
       </div>
-      <nav aria-label="Principale">
-        <ul class="nav">
-          <li><a href="#chi-sono">Chi sono</a></li>
-          <li><a href="#aree">Aree di intervento</a></li>
-          <li><a href="#come-e-dove">Come e dove</a></li>
-          <li><a href="#contatti">Contatti</a></li>
-        </ul>
-      </nav>
+      <ul class="letterhead">
+        <li><a href="tel:+390200000000">02 0000 0000</a></li>
+        <li><a href="mailto:studio@sofiabonsignore.it">studio@sofiabonsignore.it</a></li>
+      </ul>
     </div>
+    <nav class="wrap" aria-label="Principale">
+      <ul class="nav">
+        <li><a href="#chi-sono">Chi sono</a></li>
+        <li><a href="#aree">Aree di intervento</a></li>
+        <li><a href="#come-e-dove">Come e dove</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main id="main">
@@ -119,11 +125,6 @@
         <div class="section__body">
           <!-- Testi e onorari provvisori -->
           <div class="block">
-            <h3>Primo colloquio</h3>
-            <p>Il primo colloquio serve a raccogliere la richiesta e a valutare se e in che modo proseguire. Non comporta l'impegno a intraprendere un percorso.</p>
-          </div>
-
-          <div class="block">
             <h3>Sedute</h3>
             <p>Le sedute durano 50 minuti e hanno, di norma, cadenza settimanale. Frequenza e durata complessiva del percorso vengono definite al termine della fase di valutazione.</p>
             <p>Per i pazienti minorenni è necessario il consenso informato di entrambi i genitori o di chi esercita la responsabilità genitoriale.</p>
@@ -176,7 +177,9 @@
         </div>
 
         <div class="section__body">
-          <!-- Recapiti provvisori -->
+          <!-- Recapiti e orari provvisori -->
+          <p>Il primo colloquio serve a raccogliere la richiesta e a valutare se e in che modo proseguire; non comporta l'impegno a intraprendere un percorso. Per fissarlo è possibile telefonare, scrivere un'email o lasciare i propri recapiti con il modulo.</p>
+
           <dl class="contacts">
             <div>
               <dt>Telefono</dt>
@@ -187,8 +190,69 @@
               <dd><a href="mailto:studio@sofiabonsignore.it">studio@sofiabonsignore.it</a></dd>
             </div>
           </dl>
-          <p>Ricevo su appuntamento. È possibile telefonare dal lunedì al venerdì, dalle 9 alle 19; alle email rispondo entro due giorni lavorativi.</p>
-          <p>Per fissare il primo colloquio è sufficiente lasciare un recapito e indicare le proprie disponibilità. Non è necessario anticipare il motivo della richiesta.</p>
+          <p class="small">Al telefono rispondo dal lunedì al venerdì, dalle 9 alle 19. Alle email e alle richieste inviate con il modulo rispondo entro due giorni lavorativi.</p>
+
+          <!-- Modulo dimostrativo: in produzione l'invio passa da un servizio come Formspree o Web3Forms -->
+          <form class="form" id="richiesta" aria-labelledby="h-richiesta">
+            <div>
+              <h3 id="h-richiesta">Richiesta di primo colloquio</h3>
+              <p class="small">Lasciando i propri recapiti si viene ricontattati per concordare giorno e modalità. Non è necessario indicare il motivo della richiesta: se ne parlerà al primo colloquio.</p>
+            </div>
+
+            <fieldset class="field">
+              <legend>La richiesta è</legend>
+              <div class="choices">
+                <label><input type="radio" name="per" value="se" required> per sé</label>
+                <label><input type="radio" name="per" value="figlio"> per un figlio o una figlia</label>
+              </div>
+            </fieldset>
+
+            <!-- Visibile solo se la richiesta è per un figlio (regola CSS con :has) -->
+            <div class="field field--eta">
+              <label for="f-eta">Età del figlio o della figlia <span class="optional">facoltativo</span></label>
+              <input id="f-eta" name="eta" type="text" inputmode="numeric" maxlength="2" class="input--short">
+            </div>
+
+            <div class="field">
+              <label for="f-nome">Nome e cognome</label>
+              <input id="f-nome" name="nome" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="f-tel">Telefono <span class="optional">facoltativo</span></label>
+                <input id="f-tel" name="telefono" type="tel" autocomplete="tel">
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend>Modalità</legend>
+              <div class="choices">
+                <label><input type="radio" name="modalita" value="studio"> in studio</label>
+                <label><input type="radio" name="modalita" value="online"> online</label>
+                <label><input type="radio" name="modalita" value="indifferente" checked> indifferente</label>
+              </div>
+            </fieldset>
+
+            <div class="field">
+              <label for="f-disp">Giorni e orari preferiti <span class="optional">facoltativo</span></label>
+              <input id="f-disp" name="disponibilita" type="text" placeholder="Ad esempio: martedì o giovedì, dopo le 17">
+            </div>
+
+            <label class="consent">
+              <input type="checkbox" name="privacy" required>
+              <span>Ho letto l'<a href="privacy.html">informativa privacy</a>.</span>
+            </label>
+
+            <div>
+              <button type="submit" class="button">Invia la richiesta</button>
+              <p class="form__status" id="richiesta-esito" role="status" hidden></p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
