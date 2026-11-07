@@ -1,8 +1,0 @@
-/* Base comune alla seconda serie di prove: parte dalla prova 1 (sabbia calda + grana di carta)
-   e toglie ogni verde: link, pulsante, punti delle illustrazioni e piè di pagina diventano
-   un bruno inchiostro. */
-:root {
-  --field: #EDE2D3;
-  --deep: #3B302A;
-  --deep-soft: #D8CCC0;
-}
