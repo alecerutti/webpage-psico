@@ -30,33 +30,12 @@
     </div>
   </nav>
 
-  <!-- Apertura: testo a sinistra; a destra un "mobile" di ritagli di carta (le forme delle aree)
-       che si muovono con inerzia seguendo il mouse, ciascuno a una profondità diversa (data-d).
-       Su telefono e senza mouse fluttuano lentissimi; con "riduci movimento" restano fermi. -->
+  <!-- Apertura come un frontespizio: nome, qualifica e recapiti a sinistra, ritratto a destra
+       (il volto è il primo elemento di fiducia per chi deve decidere se prenotare) -->
   <header class="hero" id="top">
-    <div class="ritagli" aria-hidden="true">
-      <span class="ritaglio" data-d="0.35" data-r="0" style="--x:66%;--y:44%;--w:clamp(9rem,19vw,17rem);--mx:72%;--my:76%;--mw:9rem">
-        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" class="f-peach"/></svg></span>
-      <span class="ritaglio" data-d="0.8" data-r="-18" style="--x:84%;--y:24%;--w:clamp(4.5rem,9vw,8rem);--mx:90%;--my:62%;--mw:4.5rem">
-        <svg viewBox="0 0 100 100"><path d="M4 96C8 46 46 8 96 4C92 54 54 92 4 96Z" class="f-terracotta"/></svg></span>
-      <span class="ritaglio" data-d="0.55" data-r="0" style="--x:80%;--y:68%;--w:clamp(4rem,7.5vw,7rem);--mx:52%;--my:84%;--mw:3.6rem">
-        <svg viewBox="0 0 100 150"><path d="M0 150V50A50 50 0 0 1 100 50V150Z" class="f-mauve"/></svg></span>
-      <span class="ritaglio" data-d="1" data-r="12" style="--x:55%;--y:76%;--w:clamp(4rem,7vw,6.5rem);--mx:24%;--my:90%;--mw:3.8rem">
-        <svg viewBox="0 0 100 100"><path d="M0 40A50 50 0 0 0 100 40A60 60 0 0 1 0 40Z" class="f-rose-deep"/></svg></span>
-      <span class="ritaglio" data-d="0.65" data-r="40" style="--x:93%;--y:84%;--w:clamp(3rem,5vw,4.5rem);--mx:8%;--my:72%;--mw:2.6rem">
-        <svg viewBox="0 0 100 100"><path d="M4 96C8 46 46 8 96 4C92 54 54 92 4 96Z" class="f-rose-deep"/></svg></span>
-      <span class="ritaglio" data-d="0.25" data-r="0" style="--x:92%;--y:6%;--w:clamp(5rem,10vw,9rem);--mx:96%;--my:4%;--mw:5rem">
-        <svg viewBox="0 0 100 50"><path d="M0 0A50 50 0 0 0 100 0Z" class="f-sand"/></svg></span>
-      <span class="ritaglio" data-d="1.2" data-r="0" style="--x:58%;--y:22%;--w:1.1rem;--mx:66%;--my:58%;--mw:.9rem">
-        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" class="f-deep"/></svg></span>
-      <span class="ritaglio" data-d="0.9" data-r="0" style="--x:72%;--y:90%;--w:.7rem;--mx:38%;--my:70%;--mw:.6rem">
-        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" class="f-deep"/></svg></span>
-      <span class="ritaglio" data-d="0.45" data-r="0" style="--x:47%;--y:40%;--w:.85rem;--mx:86%;--my:94%;--mw:.7rem">
-        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" class="f-terracotta"/></svg></span>
-    </div>
     <div class="wrap hero__inner">
-      <h1 class="name" id="name">Sofia Bonsignore</h1>
-      <div class="hero__aside">
+      <div class="hero__text">
+        <h1 class="name" id="name">Sofia Bonsignore</h1>
         <p class="role">Psicologa e psicoterapeuta</p>
         <p class="hero__who">Preadolescenti, adolescenti, giovani adulti e genitori</p>
         <ul class="hero__contacts">
@@ -64,6 +43,10 @@
           <li><a href="mailto:studio@sofiabonsignore.it">studio@sofiabonsignore.it</a></li>
         </ul>
       </div>
+      <!-- Il ritratto scende oltre il bordo della fascia sabbia ed entra nella sezione successiva -->
+      <figure class="portrait">
+        <img src="dummy-photo.jpg" alt="Ritratto della dottoressa Sofia Bonsignore" width="1800" height="1005">
+      </figure>
     </div>
   </header>
 
@@ -71,12 +54,8 @@
 
     <section class="section section--cream" id="chi-sono" aria-labelledby="h-chi-sono">
       <div class="wrap about">
-        <figure class="portrait">
-          <img src="dummy-photo.jpg" alt="Ritratto della dottoressa Sofia Bonsignore" width="1800" height="1005">
-        </figure>
-
+        <h2 class="section__title" id="h-chi-sono">Chi sono</h2>
         <div class="about__text">
-          <h2 class="section__title" id="h-chi-sono">Chi sono</h2>
           <!-- Testo provvisorio -->
           <p>Sono psicologa e psicoterapeuta a orientamento cognitivo-comportamentale. Mi occupo di valutazione e trattamento psicologico di preadolescenti, adolescenti e giovani adulti, e di consulenza ai genitori.</p>
           <p>Ogni percorso inizia con una fase di valutazione, al termine della quale vengono condivisi gli obiettivi e le modalità di lavoro. L'andamento della terapia è verificato periodicamente nel corso degli incontri.</p>

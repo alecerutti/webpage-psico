@@ -125,7 +125,6 @@ a:hover { color: var(--terracotta); }
 .f-moss { fill: var(--moss); }
 .f-mauve { fill: var(--mauve); }
 .f-deep { fill: var(--deep); }
-.f-sand { fill: #DCC6AA; }
 .s-deep { stroke: var(--deep); }
 
 /* ---------- Barra di navigazione ---------- */
@@ -182,41 +181,24 @@ a:hover { color: var(--terracotta); }
   .bar__name { display: block; }
 }
 
-/* ---------- Apertura: testo a sinistra, ritagli di carta a destra, grana di carta ---------- */
-.hero {
-  position: relative;
-  overflow: hidden;
-  background: var(--field);
-  min-height: min(calc(100svh - var(--bar-h)), 46rem);
-  display: flex; align-items: center;
-}
-.hero > .wrap { position: relative; z-index: 3; }
+/* ---------- Apertura: frontespizio con ritratto, su sabbia con grana di carta ---------- */
+/* Il volto nella prima schermata è il primo elemento di fiducia per chi deve decidere se prenotare.
+   Su schermi larghi il ritratto scende oltre il bordo della fascia ed entra nella sezione successiva. */
+.hero { position: relative; z-index: 1; background: var(--field); }
+.hero > .wrap { position: relative; z-index: 1; }
 
-/* Grana di carta solo sull'apertura: rumore SVG generato dal browser, in "moltiplica" */
+/* Grana di carta: rumore SVG generato dal browser, in "moltiplica" */
 .hero::after {
-  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background-image: var(--grain);
   opacity: .45;
   mix-blend-mode: multiply;
 }
 
-/* Il "mobile" di ritagli: posizioni e misure in --x/--y/--w (su telefono --mx/--my/--mw);
-   il movimento lo calcola script.js */
-.ritagli { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.ritaglio {
-  position: absolute;
-  left: var(--x); top: var(--y); width: var(--w);
-  translate: -50% -50%;
-  will-change: transform;
-}
-.ritaglio svg { display: block; width: 100%; height: auto; }
-
 .hero__inner {
-  display: grid; gap: 1.75rem;
-  width: min(72rem, 100% - 2 * var(--gutter));
-  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 6rem);
+  display: grid; gap: 2.5rem;
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 5rem);
 }
-.hero__inner > * { max-width: 34rem; }
 
 .name {
   font-size: clamp(3rem, 1.6rem + 6vw, 6.5rem);
@@ -225,24 +207,44 @@ a:hover { color: var(--terracotta); }
   letter-spacing: -.025em;
 }
 .role {
+  margin-top: 1.5rem;
   font-family: var(--serif); font-style: italic;
   font-size: clamp(1.3rem, 1.05rem + .8vw, 1.65rem);
   line-height: 1.3;
 }
-.hero__who { margin-top: .75rem; color: var(--muted); }
+.hero__who { margin-top: .5rem; color: var(--muted); }
 
 .hero__contacts {
   list-style: none; padding: 0;
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
   display: flex; flex-wrap: wrap; gap: .35rem 1.75rem;
 }
 .hero__contacts a { color: var(--ink); text-decoration-color: var(--terracotta); text-decoration-thickness: 1.5px; }
 .hero__contacts a:hover { color: var(--terracotta); }
 
-/* Telefono: il testo sta in alto, i ritagli in una fascia in basso */
-@media (max-width: 51.99rem) {
-  .hero { min-height: 44rem; align-items: flex-start; }
-  .ritaglio { left: var(--mx, var(--x)); top: var(--my, var(--y)); width: var(--mw, var(--w)); }
+.portrait { width: min(100%, 24rem); }
+.portrait img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 51% 28%;
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 52rem) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: center;
+    gap: clamp(3rem, 6vw, 6rem);
+    padding-bottom: 0;
+  }
+  .hero__text { padding-bottom: clamp(3rem, 6vw, 5rem); }
+  .portrait {
+    justify-self: end;
+    width: 100%; max-width: 25rem;
+    margin-bottom: calc(-1 * clamp(3rem, 7vw, 6rem));
+  }
+  #chi-sono { padding-top: calc(var(--space) + 2rem); }
 }
 
 /* ---------- Sezioni ---------- */
@@ -259,18 +261,8 @@ a:hover { color: var(--terracotta); }
 
 .section h3 { font-size: 1.4rem; font-weight: 500; margin-bottom: .5rem; }
 
-/* ---------- Chi sono ---------- */
-.about { display: grid; gap: 3rem; align-items: center; }
-
-.portrait { width: min(100%, 22rem); }
-.portrait img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: 51% 28%;
-  border-radius: var(--radius-lg);
-}
-
+/* ---------- Chi sono: titolo a sinistra, testo a destra ---------- */
+.about { display: grid; align-items: start; }
 .about__text { max-width: var(--measure); min-width: 0; }
 .training {
   margin-top: 2rem; padding-top: 1.25rem;
@@ -280,7 +272,7 @@ a:hover { color: var(--terracotta); }
 
 @media (min-width: 52rem) {
   .about { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(4rem, 8vw, 7rem); }
-  .portrait { width: auto; }
+  .about .section__title { margin-bottom: 0; }
 }
 
 /* ---------- Aree di intervento ---------- */
