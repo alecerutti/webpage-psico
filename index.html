@@ -7,7 +7,7 @@
   <meta name="description" content="Psicologa e psicoterapeuta a Milano, Porta Venezia, e online. Preadolescenti, adolescenti, giovani adulti e consulenza ai genitori.">
   <!-- Sviluppo: non indicizzare. Rimuovere al lancio. -->
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#F0D6C9">
+  <meta name="theme-color" content="#26395C">
   <link rel="preload" href="assets/fonts/source-sans-3.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-serif-4-opsz.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
@@ -17,7 +17,7 @@
 
   <a class="skip" href="#main">Vai al contenuto</a>
 
-  <!-- Barra che resta in alto: sul fondo rosa dell'apertura, poi crema con il nome quando si scorre -->
+  <!-- Barra che resta in alto: sul blu dell'apertura, poi crema con il nome quando si scorre -->
   <nav class="bar" id="bar" aria-label="Principale">
     <div class="wrap bar__inner">
       <a class="bar__name" href="#top">Sofia Bonsignore</a>
@@ -30,28 +30,18 @@
     </div>
   </nav>
 
+  <!-- Apertura come un frontespizio: nome a sinistra, qualifica e recapiti a destra -->
   <header class="hero" id="top">
     <div class="wrap hero__inner">
-      <div class="hero__text">
-        <h1 class="name" id="name">Sofia Bonsignore</h1>
-        <p class="role">Psicologa e psicoterapeuta<br>a Milano, Porta Venezia, e online</p>
+      <h1 class="name" id="name">Sofia Bonsignore</h1>
+      <div class="hero__aside">
+        <p class="role">Psicologa e psicoterapeuta</p>
         <p class="hero__who">Preadolescenti, adolescenti, giovani adulti e genitori</p>
         <ul class="hero__contacts">
           <li><a href="tel:+390200000000">02 0000 0000</a></li>
           <li><a href="mailto:studio@sofiabonsignore.it">studio@sofiabonsignore.it</a></li>
         </ul>
       </div>
-
-      <!-- Collage a carta ritagliata: le forme delle tre aree (foglie, soglia, coppa) appoggiate sul bordo -->
-      <svg class="hero__collage" viewBox="0 0 480 400" aria-hidden="true">
-        <circle cx="352" cy="128" r="74" class="f-peach"/>
-        <path d="M150 400V196A110 110 0 0 1 370 196V400Z" class="f-olive"/>
-        <path d="M216 400V238A44 44 0 0 1 304 238V400Z" class="f-moss"/>
-        <path d="M152 306C92 296 50 246 40 184C102 194 142 244 152 306Z" class="f-terracotta"/>
-        <path d="M322 118C342 66 392 34 446 38C432 90 384 120 322 118Z" class="f-rose-deep"/>
-        <circle cx="96" cy="96" r="15" class="f-blue"/>
-        <path d="M384 400A52 52 0 0 1 480 400Z" class="f-mauve"/>
-      </svg>
     </div>
   </header>
 
@@ -59,7 +49,6 @@
 
     <section class="section section--cream" id="chi-sono" aria-labelledby="h-chi-sono">
       <div class="wrap about">
-        <!-- Ritratto ritagliato ad arco su un arco colorato sfalsato, con un cerchio pesca -->
         <figure class="portrait">
           <img src="dummy-photo.jpg" alt="Ritratto della dottoressa Sofia Bonsignore" width="1800" height="1005">
         </figure>
@@ -184,7 +173,7 @@
           </div>
         </div>
 
-        <!-- Lo studio: foto che scorrono (swipe o frecce) su un cerchio ritagliato, indicazioni accanto -->
+        <!-- Lo studio: foto che scorrono (swipe o frecce), indicazioni accanto -->
         <div class="studio">
           <div class="gallery">
             <div class="gallery__track" id="gallery-track" tabindex="0" role="region" aria-label="Foto dello studio">
@@ -216,7 +205,7 @@
       </div>
     </section>
 
-    <section class="section section--sand" id="contatti" aria-labelledby="h-contatti">
+    <section class="section section--cream" id="contatti" aria-labelledby="h-contatti">
       <div class="wrap contact">
         <div class="contact__intro">
           <h2 class="section__title" id="h-contatti">Contatti</h2>
@@ -240,21 +229,7 @@
         <form class="form" id="richiesta" aria-labelledby="h-richiesta">
           <div>
             <h3 id="h-richiesta">Richiesta di primo colloquio</h3>
-            <p class="small">Lasciando i propri recapiti si viene ricontattati per concordare giorno e modalità. Non è necessario indicare il motivo della richiesta: se ne parlerà al primo colloquio.</p>
-          </div>
-
-          <fieldset class="field">
-            <legend>La richiesta è</legend>
-            <div class="choices">
-              <label><input type="radio" name="per" value="se" required> per sé</label>
-              <label><input type="radio" name="per" value="figlio"> per un figlio o una figlia</label>
-            </div>
-          </fieldset>
-
-          <!-- Visibile solo se la richiesta è per un figlio (regola CSS con :has) -->
-          <div class="field field--eta">
-            <label for="f-eta">Età del figlio o della figlia <span class="optional">facoltativo</span></label>
-            <input id="f-eta" name="eta" type="text" inputmode="numeric" maxlength="2" class="input--short">
+            <p class="small">Lasciando i propri recapiti si viene ricontattati per concordare il primo incontro.</p>
           </div>
 
           <div class="field">
@@ -273,18 +248,11 @@
             </div>
           </div>
 
-          <fieldset class="field">
-            <legend>Modalità</legend>
-            <div class="choices">
-              <label><input type="radio" name="modalita" value="studio"> in studio</label>
-              <label><input type="radio" name="modalita" value="online"> online</label>
-              <label><input type="radio" name="modalita" value="indifferente" checked> indifferente</label>
-            </div>
-          </fieldset>
-
+          <!-- Campo libero: la nota sotto scoraggia l'invio di dati sanitari attraverso il modulo -->
           <div class="field">
-            <label for="f-disp">Giorni e orari preferiti <span class="optional">facoltativo</span></label>
-            <input id="f-disp" name="disponibilita" type="text" placeholder="Ad esempio: martedì o giovedì, dopo le 17">
+            <label for="f-msg">Messaggio <span class="optional">facoltativo</span></label>
+            <textarea id="f-msg" name="messaggio" rows="4" aria-describedby="f-msg-nota"></textarea>
+            <p class="field__hint" id="f-msg-nota">Non è necessario descrivere il motivo della richiesta: se ne parlerà con calma al primo colloquio.</p>
           </div>
 
           <label class="consent">

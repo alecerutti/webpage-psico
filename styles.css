@@ -23,20 +23,17 @@
 }
 
 /* ---------- Tokens ---------- */
-/* Campiture piene come in una stampa a colori: rosa per l'apertura, crema per il testo,
-   blu inchiostro per la sezione pratica, sabbia per i contatti. Le forme ritagliate usano
-   sempre gli stessi sette colori, così illustrazioni e sezioni sembrano dello stesso foglio. */
+/* Pochi colori, ognuno con un ruolo: crema come fondo, blu inchiostro come unico colore forte
+   (apertura, Come e dove, piè di pagina) che si alterna al crema; le tinte pastello vivono solo
+   nelle card delle aree, dove distinguono le fasce d'età. Il terracotta resta per i piccoli dettagli. */
 :root {
   --cream: #F7F1E8;
-  --card: #FCF9F4;
+  --card: #FDFAF5;
   --ink: #22262B;
   --muted: #5E5A55;
   --rule: #DED5C8;
   --blue: #26395C;
   --blue-soft: #C9D2E3;     /* testo secondario su fondo blu */
-
-  --rose-field: #F0D6C9;    /* apertura */
-  --sand: #EEDFCB;          /* contatti */
 
   /* Fondi delle card */
   --rose-bg: #F2DCD3;
@@ -127,13 +124,14 @@ a:hover { color: var(--terracotta); }
 .s-blue { stroke: var(--blue); }
 
 /* ---------- Barra di navigazione ---------- */
-/* In cima ha il colore dell'apertura; quando l'apertura esce dallo schermo diventa crema e mostra il nome */
+/* In cima ha il blu dell'apertura; quando l'apertura esce dallo schermo diventa crema e mostra il nome */
 .bar {
+  --bar-fg: var(--cream);
   position: sticky; top: 0; z-index: 20;
-  background: var(--rose-field);
+  background: var(--blue);
   transition: background-color .35s var(--ease), box-shadow .35s var(--ease);
 }
-.bar.is-stuck { background: var(--cream); box-shadow: 0 1px 0 var(--rule); }
+.bar.is-stuck { --bar-fg: var(--ink); background: var(--cream); box-shadow: 0 1px 0 var(--rule); }
 
 .bar__inner {
   display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
@@ -143,7 +141,7 @@ a:hover { color: var(--terracotta); }
 .bar__name {
   display: none;
   font-family: var(--serif); font-size: 1.2rem; white-space: nowrap;
-  color: var(--ink); text-decoration: none;
+  color: var(--bar-fg); text-decoration: none;
   opacity: 0; visibility: hidden;
   transition: opacity .3s var(--ease), visibility .3s;
 }
@@ -156,11 +154,11 @@ a:hover { color: var(--terracotta); }
 }
 .nav a {
   display: block; padding-block: .3rem;
-  color: var(--ink); text-decoration: none;
+  color: var(--bar-fg); text-decoration: none;
   border-bottom: 2px solid transparent;
-  transition: color .2s, border-color .2s;
+  transition: color .35s, border-color .2s;
 }
-.nav a:hover { color: var(--ink); border-bottom-color: var(--peach); }
+.nav a:hover { color: var(--bar-fg); border-bottom-color: var(--peach); }
 .nav a[aria-current="true"] { border-bottom-color: var(--terracotta); }
 .nav__more { display: none; }
 
@@ -170,10 +168,13 @@ a:hover { color: var(--terracotta); }
   .bar__name { display: block; }
 }
 
-/* ---------- Apertura ---------- */
-.hero { background: var(--rose-field); overflow: hidden; }
+/* ---------- Apertura: un frontespizio su fondo blu ---------- */
+.hero { background: var(--blue); color: var(--cream); }
 
-.hero__inner { display: grid; gap: 2rem; padding-top: clamp(2rem, 6vw, 4rem); }
+.hero__inner {
+  display: grid; gap: 2rem;
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(3rem, 8vw, 6rem);
+}
 
 .name {
   font-size: clamp(3rem, 1.6rem + 6vw, 6.5rem);
@@ -182,35 +183,29 @@ a:hover { color: var(--terracotta); }
   letter-spacing: -.025em;
 }
 .role {
-  margin-top: 1.25rem;
   font-family: var(--serif); font-style: italic;
-  font-size: clamp(1.2rem, 1rem + .7vw, 1.5rem);
-  line-height: 1.35;
+  font-size: clamp(1.3rem, 1.05rem + .8vw, 1.65rem);
+  line-height: 1.3;
 }
-.hero__who { margin-top: 1.5rem; color: var(--muted); }
+.hero__who { margin-top: .75rem; color: var(--blue-soft); }
 
 .hero__contacts {
   list-style: none; padding: 0;
-  margin-top: 1.75rem;
+  margin-top: 1.5rem;
   display: flex; flex-wrap: wrap; gap: .35rem 1.75rem;
 }
-.hero__contacts a { color: var(--ink); text-decoration-color: var(--terracotta); text-decoration-thickness: 2px; }
-.hero__contacts a:hover { color: var(--terracotta); }
-
-/* Il collage poggia sul bordo inferiore dell'apertura, come ritagli incollati sul foglio */
-.hero__collage { display: block; width: min(100%, 26rem); justify-self: end; margin-right: calc(-1 * var(--gutter)); }
+.hero__contacts a { color: var(--cream); text-decoration-color: var(--peach); text-decoration-thickness: 1.5px; }
+.hero__contacts a:hover { color: var(--peach); }
 
 @media (min-width: 52rem) {
-  .hero__inner { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: end; gap: 3rem; padding-top: clamp(3rem, 6vw, 5rem); }
-  .hero__text { padding-bottom: clamp(3rem, 7vw, 6rem); }
-  .hero__collage { width: 100%; max-width: 32rem; margin-right: 0; }
+  .hero__inner { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); align-items: end; gap: 4rem; }
+  .hero__aside { padding-bottom: .6rem; border-left: 1px solid rgb(247 241 232 / .25); padding-left: 2.5rem; }
 }
 
 /* ---------- Sezioni ---------- */
 .section { padding-block: var(--space); overflow-x: clip; }
 .section--cream + .section--cream { padding-top: 0; }
 .section--blue { background: var(--blue); color: var(--cream); }
-.section--sand { background: var(--sand); }
 
 .section__title {
   font-size: clamp(2.3rem, 1.6rem + 2.6vw, 3.6rem);
@@ -224,25 +219,13 @@ a:hover { color: var(--terracotta); }
 /* ---------- Chi sono ---------- */
 .about { display: grid; gap: 3rem; align-items: center; }
 
-/* Ritratto ritagliato ad arco, con un arco oliva sfalsato dietro e un cerchio pesca davanti */
-.portrait { position: relative; width: min(100% - 2.5rem, 22rem); margin-inline: 1.25rem auto; }
-.portrait::before {
-  content: ""; position: absolute; inset: 2.5rem -1.25rem -1.25rem -1.25rem;
-  background: var(--olive);
-  border-radius: 999px 999px var(--radius) var(--radius);
-}
-.portrait::after {
-  content: ""; position: absolute;
-  width: 26%; aspect-ratio: 1; right: -9%; top: 12%;
-  background: var(--peach); border-radius: 50%;
-}
+.portrait { width: min(100%, 22rem); }
 .portrait img {
-  position: relative;
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: 51% 28%;
-  border-radius: 999px 999px var(--radius) var(--radius);
+  border-radius: var(--radius-lg);
 }
 
 .about__text { max-width: var(--measure); min-width: 0; }
@@ -254,7 +237,7 @@ a:hover { color: var(--terracotta); }
 
 @media (min-width: 52rem) {
   .about { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(4rem, 8vw, 7rem); }
-  .portrait { width: auto; margin-inline: 1.25rem; }
+  .portrait { width: auto; }
 }
 
 /* ---------- Aree di intervento ---------- */
@@ -331,7 +314,7 @@ a:hover { color: var(--terracotta); }
   color: var(--peach);
 }
 
-/* Lo studio: foto che scorrono sopra un cerchio ritagliato, indicazioni a destra */
+/* Lo studio: foto che scorrono, indicazioni a destra */
 .studio {
   display: grid; gap: 2.5rem;
   margin-top: clamp(4rem, 8vw, 6rem);
@@ -340,21 +323,8 @@ a:hover { color: var(--terracotta); }
   .studio { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: clamp(3rem, 6vw, 5rem); align-items: center; }
 }
 
-.gallery { position: relative; min-width: 0; }
-.gallery::before {
-  content: ""; position: absolute;
-  width: clamp(7rem, 16vw, 11rem); aspect-ratio: 1;
-  left: clamp(-3rem, -4vw, -1.5rem); top: clamp(-3rem, -4vw, -1.5rem);
-  background: var(--peach); border-radius: 50%;
-}
-.gallery::after {
-  content: ""; position: absolute;
-  width: clamp(3rem, 6vw, 4.5rem); aspect-ratio: 1;
-  right: clamp(-1.5rem, -2vw, -.75rem); bottom: 4.5rem;
-  background: var(--olive); border-radius: 50% 50% 0 0;
-}
+.gallery { min-width: 0; }
 .gallery__track {
-  position: relative; z-index: 1;
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -371,7 +341,7 @@ a:hover { color: var(--terracotta); }
   scroll-snap-align: start;
 }
 
-.gallery__controls { position: relative; display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+.gallery__controls { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
 .gallery__controls[hidden] { display: none; }
 .gallery__btn {
   width: 2.75rem; height: 2.75rem;
@@ -404,7 +374,7 @@ address { font-style: normal; }
 .line--m4 { background: #2A78C8; }
 .line--s  { background: #3F8A5E; }
 
-/* ---------- Contatti (fondo sabbia) ---------- */
+/* ---------- Contatti ---------- */
 .contact { display: grid; gap: 3rem; align-items: start; }
 .contact__intro { max-width: var(--measure); min-width: 0; }
 
@@ -426,23 +396,24 @@ address { font-style: normal; }
 .contacts a { color: var(--ink); text-decoration-color: var(--terracotta); text-decoration-thickness: 2px; }
 .contacts a:hover { color: var(--terracotta); }
 
-/* Modulo di richiesta: una scheda chiara sul fondo sabbia, controlli nativi tinti con il blu */
+/* Modulo di richiesta: una scheda chiara sul fondo crema, pochi campi */
 .form {
   display: grid; gap: 1.5rem;
   min-width: 0;
   padding: clamp(1.5rem, 4vw, 2.5rem);
   background: var(--card);
+  border: 1px solid var(--rule);
   border-radius: var(--radius-lg);
 }
 .form h3 { margin-bottom: .5rem; }
 
 .field { display: grid; gap: .35rem; margin: 0; padding: 0; border: 0; min-width: 0; }
-.field legend { padding: 0; margin-bottom: .35rem; }
 .optional { font-size: .875em; font-style: italic; color: var(--muted); margin-left: .25rem; }
 
 .form input[type="text"],
 .form input[type="email"],
-.form input[type="tel"] {
+.form input[type="tel"],
+.form textarea {
   width: 100%;
   font: inherit; color: var(--ink);
   padding: .6rem .75rem;
@@ -450,20 +421,12 @@ address { font-style: normal; }
   border: 1px solid #CFC6B8;
   border-radius: 8px;
 }
-.form input::placeholder { color: #8E8880; }
-.form input:focus { outline: 2px solid var(--blue); outline-offset: -1px; border-color: var(--blue); }
+.form textarea { resize: vertical; min-height: 7.5rem; line-height: 1.5; }
+.form input:focus, .form textarea:focus { outline: 2px solid var(--blue); outline-offset: -1px; border-color: var(--blue); }
 .form input:user-invalid { border-color: #9B3B2F; }
-.input--short { max-width: 5rem; }
+.field__hint { font-size: .875em; color: var(--muted); }
 
-.form input[type="radio"],
 .form input[type="checkbox"] { accent-color: var(--blue); width: 1.05rem; height: 1.05rem; margin: 0; flex: none; }
-
-.choices { display: flex; flex-wrap: wrap; gap: .4rem 1.75rem; }
-.choices label { display: inline-flex; align-items: center; gap: .55rem; cursor: pointer; }
-
-/* Il campo età compare solo per le richieste che riguardano un figlio */
-.field--eta { display: none; }
-.form:has(input[name="per"][value="figlio"]:checked) .field--eta { display: grid; }
 
 .form__row { display: grid; gap: 1.5rem; }
 @media (min-width: 40rem) { .form__row { grid-template-columns: 1fr 1fr; } }
@@ -518,7 +481,7 @@ address { font-style: normal; }
 
 /* ---------- Stampa ---------- */
 @media print {
-  body, .hero, .section--blue, .section--sand, .footer { background: #fff; color: #000; }
-  .bar, .skip, .gallery, .form, .hero__collage { display: none; }
+  body, .hero, .section--blue, .footer { background: #fff; color: #000; }
+  .bar, .skip, .gallery, .form { display: none; }
   a { color: inherit; text-decoration: none; }
 }

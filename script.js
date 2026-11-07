@@ -23,6 +23,7 @@
     const section = document.getElementById(id);
     if (section) spy.observe(section);
   });
+  spy.observe(hero); // sull'apertura nessuna voce è attiva
 
   // Foto dello studio: si scorrono con il dito (scroll-snap) o con le frecce; senza JS resta lo scorrimento
   const track = document.getElementById('gallery-track');
