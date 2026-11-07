@@ -1,5 +1,7 @@
 # webpage-psico
 
-Sito one-page di presentazione per una psicologa (versione di sviluppo, dati di esempio).
+Sito di presentazione per una psicologa (versione di sviluppo: testi, recapiti e ritratto sono provvisori).
 
-Pubblicato con GitHub Pages: https://alecerutti.github.io/webpage-psico/
+HTML e CSS statici, nessuno script e nessun passaggio di build. Il font (Source Serif 4, licenza OFL) è incluso in `assets/fonts`.
+
+Anteprima su GitHub Pages: https://alecerutti.github.io/webpage-psico/

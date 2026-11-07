@@ -2,286 +2,206 @@
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Dott.ssa Giulia Ferrante · Psicologa a Milano Porta Venezia e online</title>
-  <meta name="description" content="Psicologa e psicoterapeuta a Milano, Porta Venezia, e online. Supporto psicologico per preadolescenti, adolescenti, giovani adulti e genitori.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dott.ssa Sofia Bonsignore · Psicologa e psicoterapeuta a Milano</title>
+  <meta name="description" content="Psicologa e psicoterapeuta a Milano, Porta Venezia, e online. Preadolescenti, adolescenti, giovani adulti e consulenza ai genitori.">
   <!-- Sviluppo: non indicizzare. Rimuovere al lancio. -->
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#F7F4EF">
-  <!-- In produzione: font self-hosted (GDPR). Qui Google Fonts solo per il dummy. -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#FAF9F6">
+  <link rel="preload" href="assets/fonts/source-serif-4-opsz.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
   <a class="skip" href="#main">Vai al contenuto</a>
 
-  <header class="header" id="header">
-    <div class="header__inner container">
-      <a href="#top" class="brand" aria-label="Torna all'inizio">
-        <span class="brand__name">Giulia Ferrante</span>
-        <span class="brand__role">Psicologa · Psicoterapeuta</span>
-      </a>
-
-      <nav class="nav" aria-label="Principale">
-        <ul class="nav__list" id="nav-list">
+  <header class="masthead">
+    <div class="wrap masthead__inner">
+      <div>
+        <h1 class="name">Sofia Bonsignore</h1>
+        <p class="role">Psicologa · Psicoterapeuta<br>Milano, Porta Venezia e online</p>
+      </div>
+      <nav aria-label="Principale">
+        <ul class="nav">
           <li><a href="#chi-sono">Chi sono</a></li>
           <li><a href="#aree">Aree di intervento</a></li>
-          <li><a href="#percorso">Inizia un percorso</a></li>
-          <li class="nav__cta-item"><a href="#contatti" class="btn btn--small">Contatti</a></li>
+          <li><a href="#come-e-dove">Come e dove</a></li>
+          <li><a href="#contatti">Contatti</a></li>
         </ul>
-        <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Apri menu">
-          <span></span><span></span>
-        </button>
       </nav>
     </div>
   </header>
 
   <main id="main">
 
-    <!-- HERO -->
-    <section class="hero" id="top">
-      <div class="hero__glow" aria-hidden="true"></div>
-      <div class="container hero__inner">
-        <div class="hero__text">
-          <p class="eyebrow reveal">Milano, Porta Venezia · e online</p>
-          <h1 class="hero__title reveal">Uno spazio sicuro per crescere, cambiare e <em>ritrovarsi</em>.</h1>
-          <p class="hero__lead reveal">Supporto psicologico per preadolescenti, adolescenti, giovani adulti e genitori, con ascolto, metodo e senza giudizio. Il primo passo può essere semplicemente una conversazione.</p>
-          <div class="hero__actions reveal">
-            <a href="#contatti" class="btn">Richiesta di primo colloquio</a>
-            <a href="#chi-sono" class="link-arrow">Chi sono</a>
-          </div>
+    <section class="section" id="chi-sono" aria-labelledby="h-chi-sono">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="h-chi-sono">Chi sono</h2>
+          <figure class="portrait">
+            <img src="dummy-photo.jpg" alt="Ritratto della dottoressa Sofia Bonsignore" width="1800" height="1005">
+          </figure>
         </div>
-      </div>
-    </section>
 
-    <!-- CHI SONO -->
-    <section class="section" id="chi-sono">
-      <div class="container about">
-        <figure class="about__photo reveal">
-          <img src="dummy-photo.jpg" alt="Ritratto della dottoressa Giulia Ferrante" width="1800" height="1005" loading="lazy">
-        </figure>
-        <div class="about__text">
-          <p class="eyebrow reveal">Chi sono</p>
-          <h2 class="reveal">Piacere, sono Giulia.</h2>
-          <p class="reveal">Sono psicologa e psicoterapeuta a orientamento cognitivo-comportamentale. Mi occupo di preadolescenti, adolescenti e giovani adulti, e affianco i genitori nei momenti in cui crescere insieme diventa più faticoso.</p>
-          <p class="reveal">Credo in un lavoro concreto e collaborativo: gli obiettivi si definiscono insieme, si verificano nel tempo, e gli strumenti costruiti durante il percorso restano anche dopo la sua conclusione.</p>
+        <div class="section__body">
+          <!-- Testo provvisorio -->
+          <p>Sono psicologa e psicoterapeuta a orientamento cognitivo-comportamentale. Mi occupo di valutazione e trattamento psicologico di preadolescenti, adolescenti e giovani adulti, e di consulenza ai genitori.</p>
+          <p>Ogni percorso inizia con una fase di valutazione, al termine della quale vengono condivisi gli obiettivi e le modalità di lavoro. L'andamento della terapia è verificato periodicamente nel corso degli incontri.</p>
 
-          <dl class="facts reveal">
-            <div><dt>Formazione</dt><dd>Laurea in Psicologia Clinica, Università di Milano-Bicocca</dd></div>
-            <div><dt>Specializzazione</dt><dd>Psicoterapia Cognitivo-Comportamentale</dd></div>
-            <div><dt>Albo</dt><dd>Ordine degli Psicologi della Lombardia n. 00000</dd></div>
+          <dl class="cv">
+            <div>
+              <dt>2014</dt>
+              <dd>Laurea magistrale in Psicologia clinica, Università degli Studi di Milano-Bicocca</dd>
+            </div>
+            <div>
+              <dt>2016</dt>
+              <dd>Iscrizione all'Ordine degli Psicologi della Lombardia, n. 00000</dd>
+            </div>
+            <div>
+              <dt>2020</dt>
+              <dd>Specializzazione in Psicoterapia cognitivo-comportamentale</dd>
+            </div>
           </dl>
         </div>
       </div>
     </section>
 
-    <!-- AREE -->
-    <section class="section" id="aree">
-      <div class="container">
-        <header class="section__head reveal">
-          <p class="eyebrow">Aree di intervento</p>
-          <h2>Supporto psicologico nelle diverse fasi del ciclo di vita.</h2>
-        </header>
-
-        <!-- Tre percorsi per fascia d'età. Icone: crescita (forme impilate), autonomia (forma libera), relazione (forme che si toccano) -->
-        <div class="paths">
-          <article class="path tone-rose reveal">
-            <svg class="path__icon" viewBox="0 0 80 80" aria-hidden="true">
-              <path d="M27 14h26a13 13 0 0 1-26 0z" fill="var(--terracotta)"/>
-              <path d="M10 38h60a30 30 0 0 1-60 0z" fill="var(--rose)"/>
-            </svg>
-            <h3 class="path__name">Preadolescenti e adolescenti</h3>
-            <p class="path__age">Dagli 11 anni</p>
-            <p class="path__text">Consulenza e supporto psicologico nei momenti di difficoltà legati alla crescita, alle relazioni, alla scuola e alla costruzione della propria identità.</p>
-          </article>
-
-          <article class="path tone-olive reveal">
-            <svg class="path__icon" viewBox="0 0 80 80" aria-hidden="true">
-              <path d="M51 10c15 2 22 17 17 31-5 14-19 14-31 21-11 6-25 5-27-6-3-13 8-22 15-33 7-10 13-14 26-13z" fill="var(--olive)"/>
-            </svg>
-            <h3 class="path__name">Giovani adulti</h3>
-            <p class="path__age">19–30 anni</p>
-            <p class="path__text">Uno spazio di ascolto e confronto per affrontare difficoltà personali e relazionali, momenti di cambiamento, scelte e interrogativi legati alla costruzione del proprio progetto di vita.</p>
-          </article>
-
-          <article class="path path--parents tone-mauve reveal">
-            <svg class="path__icon" viewBox="0 0 80 80" aria-hidden="true">
-              <ellipse cx="30" cy="36" rx="20" ry="25" transform="rotate(22 30 36)" fill="var(--mauve)"/>
-              <circle cx="55" cy="52" r="17" fill="var(--peach)" opacity=".85"/>
-            </svg>
-            <h3 class="path__name">Genitori</h3>
-            <p class="path__text">Consulenza e supporto psicologico per comprendere le difficoltà dei figli, affrontare momenti di conflitto e trovare nuove modalità per accompagnarli nel percorso di crescita.</p>
-          </article>
+    <section class="section" id="aree" aria-labelledby="h-aree">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="h-aree">Aree di intervento</h2>
         </div>
 
-        <!-- Difficoltà comuni a tutte le fasce, come base delle tre card -->
-        <div class="needs reveal">
-          <ul class="needs__list pills">
-            <li>Ansia e sofferenza emotiva</li>
-            <li>Difficoltà relazionali e affettive</li>
-            <li>Autostima e immagine di sé</li>
-            <li>Difficoltà scolastiche e lavorative</li>
-            <li>Conflitti familiari</li>
-            <li>Difficoltà nel rapporto con il corpo</li>
-            <li>Ritiro e isolamento sociale</li>
-            <li>Momenti di crisi e cambiamento</li>
-          </ul>
+        <div class="section__body">
+          <!-- Le tre aree sono definitive; le descrizioni cliniche sono provvisorie e verranno sostituite. -->
+          <article class="area">
+            <h3>Preadolescenti e adolescenti</h3>
+            <p class="area__meta">Dagli 11 ai 18 anni</p>
+            <p>Valutazione e trattamento delle difficoltà emotive e comportamentali in età evolutiva: ansia, tono dell'umore, relazioni con i pari, rendimento scolastico, rapporto con il corpo e con l'alimentazione.</p>
+            <p>Il lavoro con il ragazzo o la ragazza prevede, quando opportuno, momenti di confronto con i genitori.</p>
+          </article>
+
+          <article class="area">
+            <h3>Giovani adulti</h3>
+            <p class="area__meta">Dai 19 ai 30 anni</p>
+            <p>Trattamento dei disturbi d'ansia, del tono dell'umore e delle difficoltà relazionali, con particolare attenzione alle fasi di transizione: gli studi universitari, l'ingresso nel mondo del lavoro, l'uscita dalla famiglia d'origine.</p>
+          </article>
+
+          <article class="area">
+            <h3>Genitori</h3>
+            <p class="area__meta">Consulenza genitoriale</p>
+            <p>Incontri rivolti ai genitori di preadolescenti e adolescenti, anche indipendentemente da una presa in carico del figlio. La consulenza è finalizzata alla comprensione delle difficoltà del figlio e alla definizione di modalità educative condivise.</p>
+          </article>
+
+          <div class="area">
+            <h3>Motivi frequenti di consultazione</h3>
+            <ul class="reasons">
+              <li>Ansia e attacchi di panico</li>
+              <li>Tono dell'umore</li>
+              <li>Autostima e immagine di sé</li>
+              <li>Difficoltà scolastiche e di studio</li>
+              <li>Conflitti familiari</li>
+              <li>Rapporto con il corpo e con il cibo</li>
+              <li>Ritiro sociale</li>
+              <li>Fasi di cambiamento</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- INIZIA UN PERCORSO -->
-    <section class="section" id="percorso">
-      <div class="container">
-        <header class="section__head reveal">
-          <p class="eyebrow">Inizia un percorso</p>
-          <h2>Lo studio</h2>
-        </header>
+    <section class="section" id="come-e-dove" aria-labelledby="h-come-e-dove">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="h-come-e-dove">Come e dove</h2>
+        </div>
 
-        <!-- Foto e indicazioni in un unico riquadro -->
-        <div class="studio tone-neutral reveal">
-          <div class="gallery">
-            <div class="gallery__track" id="gallery-track" tabindex="0" role="region" aria-label="Foto dello studio">
-              <img src="assets/studio/stanza-1.jpg" alt="Stanza con divano, poltrona e una grande finestra" width="1800" height="1191" loading="lazy">
-              <img src="assets/studio/stanza-2.jpg" alt="Stanza con due poltrone chiare e una libreria" width="1800" height="1192" loading="lazy">
-              <img src="assets/studio/stanza-3.jpg" alt="Poltrona accanto alla portafinestra" width="1800" height="1192" loading="lazy">
-            </div>
-            <div class="gallery__nav" id="gallery-nav" hidden>
-              <div class="gallery__dots" id="gallery-dots"></div>
-              <div class="gallery__arrows">
-                <button type="button" class="gallery__btn" data-dir="-1" aria-label="Foto precedente">&larr;</button>
-                <button type="button" class="gallery__btn" data-dir="1" aria-label="Foto successiva">&rarr;</button>
-              </div>
-            </div>
+        <div class="section__body">
+          <!-- Testi e onorari provvisori -->
+          <div class="block">
+            <h3>Primo colloquio</h3>
+            <p>Il primo colloquio serve a raccogliere la richiesta e a valutare se e in che modo proseguire. Non comporta l'impegno a intraprendere un percorso.</p>
           </div>
 
-          <div class="studio__info">
-            <div class="place__head">
-              <img class="place__logo" src="assets/studio/logo.png" alt="Logo Studio Clinico Porta Venezia" width="200" height="160" loading="lazy">
-              <div>
-                <h3>Studio Clinico Porta Venezia</h3>
-                <p class="place__address">Via Ciro Menotti 10, 20129 Milano</p>
-              </div>
-            </div>
+          <div class="block">
+            <h3>Sedute</h3>
+            <p>Le sedute durano 50 minuti e hanno, di norma, cadenza settimanale. Frequenza e durata complessiva del percorso vengono definite al termine della fase di valutazione.</p>
+            <p>Per i pazienti minorenni è necessario il consenso informato di entrambi i genitori o di chi esercita la responsabilità genitoriale.</p>
+          </div>
 
+          <div class="block">
+            <h3>Online</h3>
+            <p>I colloqui possono svolgersi in videochiamata, con le stesse modalità e gli stessi onorari delle sedute in studio.</p>
+          </div>
+
+          <div class="block">
+            <h3>Onorari</h3>
+            <table class="fees">
+              <tbody>
+                <tr><th scope="row">Primo colloquio</th><td>€ 60</td></tr>
+                <tr><th scope="row">Seduta individuale, 50 minuti</th><td>€ 70</td></tr>
+                <tr><th scope="row">Consulenza ai genitori, 50 minuti</th><td>€ 70</td></tr>
+              </tbody>
+            </table>
+            <p class="small">Le prestazioni sono detraibili come spese sanitarie. Per ogni seduta viene rilasciata fattura.</p>
+          </div>
+
+          <div class="block">
+            <h3>Lo studio</h3>
+            <address>
+              Studio Clinico Porta Venezia<br>
+              Via Ciro Menotti 10, 20129 Milano
+            </address>
+            <ul class="transit">
+              <li>Metropolitana M1, fermata Porta Venezia</li>
+              <li>Metropolitana M4, fermata Dateo</li>
+              <li>Passante ferroviario, fermate Porta Venezia e Dateo</li>
+            </ul>
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Via+Ciro+Menotti+10+Milano" target="_blank" rel="noopener">Apri in Google Maps</a></p>
+          </div>
+        </div>
+
+        <div class="photos">
+          <img src="assets/studio/stanza-1.jpg" alt="Stanza dello studio con divano, poltrona e finestra sulla via" width="1800" height="1191" loading="lazy">
+          <img src="assets/studio/stanza-2.jpg" alt="Stanza dello studio con due poltrone chiare e una libreria" width="1800" height="1192" loading="lazy">
+          <img src="assets/studio/stanza-3.jpg" alt="Poltrona accanto alla portafinestra" width="1800" height="1192" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contatti" aria-labelledby="h-contatti">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 id="h-contatti">Contatti</h2>
+        </div>
+
+        <div class="section__body">
+          <!-- Recapiti provvisori -->
+          <dl class="contacts">
             <div>
-              <p class="place__label">Come arrivare</p>
-              <ul class="transit">
-                <li><span class="line line--m1">M1</span> Porta Venezia</li>
-                <li><span class="line line--m4">M4</span> Dateo</li>
-                <li><span class="line line--s">S</span> Passante · Porta Venezia o Dateo</li>
-              </ul>
+              <dt>Telefono</dt>
+              <dd><a href="tel:+390200000000">02 0000 0000</a></dd>
             </div>
-
-            <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Via+Ciro+Menotti+10+Milano" target="_blank" rel="noopener" aria-label="Apri Via Ciro Menotti 10, Milano in Google Maps">
-              <img src="assets/mappa.jpg" alt="" width="1600" height="1000" loading="lazy">
-              <span class="map__cta">Apri in Maps</span>
-              <span class="map__credit">© OpenStreetMap</span>
-            </a>
-          </div>
+            <div>
+              <dt>Email</dt>
+              <dd><a href="mailto:studio@sofiabonsignore.it">studio@sofiabonsignore.it</a></dd>
+            </div>
+          </dl>
+          <p>Ricevo su appuntamento. È possibile telefonare dal lunedì al venerdì, dalle 9 alle 19; alle email rispondo entro due giorni lavorativi.</p>
+          <p>Per fissare il primo colloquio è sufficiente lasciare un recapito e indicare le proprie disponibilità. Non è necessario anticipare il motivo della richiesta.</p>
         </div>
-
-        <!-- Le sedute -->
-        <article class="rates reveal">
-          <h3>Le sedute</h3>
-          <ul class="prices">
-            <li><span>Primo colloquio</span><span>€ 60</span></li>
-            <li><span>Seduta individuale · 50 min</span><span>€ 70</span></li>
-            <li><span>Seduta di coppia · 60 min</span><span>€ 90</span></li>
-          </ul>
-          <p class="note">Detraibili come spese sanitarie, con regolare fattura.</p>
-        </article>
       </div>
     </section>
 
-    <!-- CONTATTI -->
-    <section class="section" id="contatti">
-      <div class="container contact">
-        <div class="contact__intro">
-          <p class="eyebrow reveal">Contatti</p>
-          <h2 class="reveal">Facciamo il primo passo insieme.</h2>
-          <p class="contact__lead reveal">Per fissare un primo colloquio è possibile telefonare, scrivere una email o compilare il modulo. Rispondo entro 24 ore lavorative.</p>
-
-          <div class="contact__links reveal">
-            <a class="contact__item" href="tel:+390200000000">
-              <span class="contact__label">Telefono</span>
-              <span class="contact__value">02 0000 0000</span>
-            </a>
-            <a class="contact__item" href="mailto:studio@giuliaferrante.it?subject=Richiesta%20primo%20colloquio">
-              <span class="contact__label">Email</span>
-              <span class="contact__value">studio@giuliaferrante.it</span>
-            </a>
-          </div>
-          <p class="note reveal">Lun–Ven, 9:00–19:00. Ogni comunicazione è protetta dal segreto professionale.</p>
-        </div>
-
-        <form class="form tone-neutral reveal" id="contact-form" novalidate>
-          <div class="form__row">
-            <div class="field">
-              <label for="f-nome">Nome</label>
-              <input id="f-nome" name="nome" type="text" autocomplete="given-name" required>
-            </div>
-            <div class="field">
-              <label for="f-tel">Telefono <span class="optional">facoltativo</span></label>
-              <input id="f-tel" name="telefono" type="tel" autocomplete="tel">
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email" required>
-          </div>
-
-          <fieldset class="field">
-            <legend>Modalità preferita</legend>
-            <div class="choices">
-              <label class="choice"><input type="radio" name="modalita" id="f-mod-studio" value="studio" checked><span>In studio</span></label>
-              <label class="choice"><input type="radio" name="modalita" id="f-mod-online" value="online"><span>Online</span></label>
-              <label class="choice"><input type="radio" name="modalita" id="f-mod-boh" value="da-definire"><span>Da definire</span></label>
-            </div>
-          </fieldset>
-
-          <div class="field">
-            <label for="f-msg">Messaggio <span class="optional">facoltativo</span></label>
-            <textarea id="f-msg" name="messaggio" rows="4" placeholder="Ad esempio, giorni e orari preferiti per essere ricontattati."></textarea>
-            <p class="field__hint">Non è necessario descrivere il motivo della richiesta: se ne parlerà con calma al primo colloquio.</p>
-          </div>
-
-          <label class="consent">
-            <input type="checkbox" id="f-privacy" name="privacy" required>
-            <span>Ho letto l'<a href="#">informativa privacy</a> e acconsento al trattamento dei dati per la gestione della richiesta.</span>
-          </label>
-
-          <button type="submit" class="btn btn--full">Invia la richiesta</button>
-          <p class="form__status" id="form-status" role="status" hidden></p>
-        </form>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
-      <p><strong>Dott.ssa Giulia Ferrante</strong><br>Psicologa · Psicoterapeuta</p>
-      <p>Studio Clinico Porta Venezia<br>Via Ciro Menotti 10, 20129 Milano</p>
-      <p>Ordine degli Psicologi della Lombardia n. 00000<br>P.IVA 00000000000 · <a href="#">Privacy</a></p>
+    <div class="wrap footer__inner">
+      <p>Dott.ssa Sofia Bonsignore, psicologa e psicoterapeuta</p>
+      <p>Ordine degli Psicologi della Lombardia n. 00000 · P.IVA 00000000000</p>
+      <p><a href="privacy.html">Informativa privacy</a></p>
     </div>
   </footer>
 
-  <!-- Barra contatti mobile -->
-  <div class="mobile-bar" id="mobile-bar">
-    <a href="tel:+390200000000" class="mobile-bar__btn">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-      Telefono
-    </a>
-    <a href="#contatti" class="mobile-bar__btn mobile-bar__btn--primary">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-      Contatti
-    </a>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
